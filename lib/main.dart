@@ -1,5 +1,6 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:circle_nav_bar/circle_nav_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quotes/resources/colors.dart';
 import 'package:quotes/ui/screens/main/full_screen_quotes.dart';
 import 'package:quotes/ui/screens/main/home.dart';
@@ -40,32 +41,41 @@ class _QuotesState extends State<Quotes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CurvedNavigationBar(
-        color: AppColors.white,
-        animationDuration: const Duration(milliseconds: 250),
-        backgroundColor: AppColors.backgroundColor,
-        items: [
-          Icon(
-            Icons.home_outlined,
-            size: 30,
-            color: AppColors.black,
-          ),
-          Icon(
-            Icons.quora_outlined,
-            size: 30,
-            color: AppColors.black,
-          ),
-          Icon(
-            Icons.person_outline,
-            size: 30,
-            color: AppColors.black,
-          ),
+      bottomNavigationBar: CircleNavBar(
+        activeIcons: const [
+          Icon(Icons.home, color: Colors.deepPurple),
+          Icon(Icons.person, color: Colors.deepPurple),
+          Icon(Icons.person_outline, color: Colors.deepPurple),
         ],
-        onTap: (index) {
+        inactiveIcons: [
+          Text(
+            "Home",
+            style:
+                GoogleFonts.nunito(fontWeight: FontWeight.w600, fontSize: 14, color: Colors.black),
+          ),
+          Text("Home",
+              style: GoogleFonts.nunito(
+                  fontWeight: FontWeight.w600, fontSize: 14, color: Colors.black)),
+          Text("Like",
+              style: GoogleFonts.nunito(
+                  fontWeight: FontWeight.w600, fontSize: 14, color: Colors.black)),
+        ],
+        color: Colors.white,
+        height: 60,
+        circleWidth: 60,
+        initIndex: screenIndex,
+        onChanged: (v) {
           setState(() {
-            screenIndex = index;
+            screenIndex = v;
           });
         },
+        // tabCurve: ,
+        cornerRadius: const BorderRadius.only(
+          topLeft: Radius.circular(8),
+          topRight: Radius.circular(8),
+        ),
+        shadowColor: Colors.black12,
+        elevation: 6,
       ),
       body: SafeArea(child: _mainScreens[screenIndex]),
     );

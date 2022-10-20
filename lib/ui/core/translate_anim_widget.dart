@@ -48,7 +48,7 @@ class AnimatedCrossFadeExampleState extends State<TransitionAnimWidget>
       parent: _controller,
       curve: Curves.easeInOut,
     ));
-    Future.delayed(Duration(milliseconds: widget.duration ~/ 1.5), () {
+    Future.delayed(Duration(milliseconds: widget.duration ~/ 2), () {
       setState(() {
         _visible = true;
       });
@@ -61,7 +61,7 @@ class AnimatedCrossFadeExampleState extends State<TransitionAnimWidget>
       position: _animation,
       child: AnimatedOpacity(
         opacity: _visible ? 1.0 : 0.0,
-        duration: Duration(milliseconds: widget.duration + 100),
+        duration: Duration(milliseconds: widget.duration),
         child: widget.child,
       ),
     );

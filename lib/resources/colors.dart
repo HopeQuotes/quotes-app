@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static Color get backgroundColor {
-    return Color(0xFFf2f7fb);
+    return const Color(0xFFf2f7fb);
   }
 
   static Color get white {
