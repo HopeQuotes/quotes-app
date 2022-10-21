@@ -210,7 +210,7 @@ class HomeScreen extends StatelessWidget {
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: ElevatedContainer(
-                      margin: EdgeInsets.all(18),
+                      margin: const EdgeInsets.all(18),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
