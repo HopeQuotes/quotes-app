@@ -1,29 +1,24 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:progressive_image/progressive_image.dart';
 
 import '../../core/translate_anim_widget.dart';
 
 class FullScreenQuotes extends StatefulWidget {
+  const FullScreenQuotes({super.key});
+
   @override
   State<FullScreenQuotes> createState() => _FullScreenQuotesState();
 }
 
 class _FullScreenQuotesState extends State<FullScreenQuotes> {
   var quotes = [
-    "https://i.imgur.com/wB0ps3a.jpeg",
-    "https://i.imgur.com/ovgYaot.jpeg",
-    "https://i.imgur.com/Z1mxpYj.jpeg"
+    "https://i.picsum.photos/id/455/200/300.jpg?hmac=IRhIhAnPAK71fkZ41MDW7ZOQWyMDZcBkbWPUUUp9Y3Q",
+    "https://i.picsum.photos/id/295/200/300.jpg?hmac=b6Ets6Bu47pFHcU4UK7lI6xYkfy48orifVzWeHAe0zM",
+    "https://i.picsum.photos/id/973/200/300.jpg?hmac=gFjS6R63ZUmM9pkLFyPxuEmsxvZ_e8VJxB3mcXpvTUQ"
   ];
-  var backgroundImage = "";
+  var pageIndex = 0;
   final PageController controller = PageController();
-
-  @override
-  void initState() {
-    backgroundImage = quotes[0];
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +26,11 @@ class _FullScreenQuotesState extends State<FullScreenQuotes> {
       children: [
         Align(
           alignment: Alignment.center,
-          child: ProgressiveImage(
-            placeholder: const AssetImage('assets/placeholder/placeholder.jpg'),
-            thumbnail: const AssetImage('assets/placeholder/placeholder.jpg'),
-            image: NetworkImage(backgroundImage),
-            height: double.infinity,
-            fit: BoxFit.cover,
-            width: double.infinity,
+          child: BlurHash(
+            duration: const Duration(milliseconds: 600),
+            imageFit: BoxFit.cover,
+            hash: 'L5H2EC=PM+yV0g-mq.wG9c010J}I',
+            image: quotes[pageIndex],
           ),
         ),
         Align(
@@ -45,7 +38,7 @@ class _FullScreenQuotesState extends State<FullScreenQuotes> {
           child: PageView(
             onPageChanged: (page) {
               setState(() {
-                backgroundImage = quotes[page];
+                pageIndex = page;
               });
             },
             scrollDirection: Axis.vertical,
@@ -121,7 +114,7 @@ class _FullScreenQuotesState extends State<FullScreenQuotes> {
                 duration: 400,
                 child: Container(
                   margin: const EdgeInsets.only(right: 12, top: 24, bottom: 24),
-                  padding: const EdgeInsets.all(4),
+                  padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
                     color: Colors.grey.withAlpha(128),
                     borderRadius: const BorderRadius.all(
@@ -139,8 +132,8 @@ class _FullScreenQuotesState extends State<FullScreenQuotes> {
                 startDirection: StartDirection.bottom,
                 duration: 400,
                 child: Container(
-                  margin: const EdgeInsets.only(right: 24, top: 24, bottom: 24),
-                  padding: const EdgeInsets.all(4),
+                  margin: const EdgeInsets.only(right: 12, top: 24, bottom: 24),
+                  padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
                     color: Colors.grey.withAlpha(128),
                     borderRadius: const BorderRadius.all(
@@ -148,7 +141,7 @@ class _FullScreenQuotesState extends State<FullScreenQuotes> {
                         ),
                   ),
                   child: const Icon(
-                    Icons.ios_share_sharp,
+                    Icons.upload_rounded,
                     size: 36,
                     color: Colors.white,
                   ),

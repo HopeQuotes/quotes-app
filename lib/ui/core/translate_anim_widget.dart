@@ -66,4 +66,10 @@ class AnimatedCrossFadeExampleState extends State<TransitionAnimWidget>
       ),
     );
   }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 }

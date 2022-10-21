@@ -101,8 +101,8 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.red,
                         gradient: LinearGradient(
                             colors: [
-                              Colors.indigo.withOpacity(0.8),
-                              Colors.indigoAccent.withOpacity(0.35),
+                              AppColors.indigo.withOpacity(1),
+                              Colors.indigoAccent.withOpacity(0.75),
                             ],
                             begin: const FractionalOffset(0.0, 0.0),
                             end: const FractionalOffset(1.0, 0.0),
@@ -246,7 +246,7 @@ class HomeScreen extends StatelessWidget {
                           Flexible(
                             flex: 1,
                             child: TransitionAnimWidget(
-                                startDirection: StartDirection.start,
+                                startDirection: StartDirection.bottom,
                                 duration: 400,
                                 child: Container(
                                   width: double.infinity,
@@ -275,7 +275,7 @@ class HomeScreen extends StatelessWidget {
                           Flexible(
                             flex: 1,
                             child: TransitionAnimWidget(
-                                startDirection: StartDirection.start,
+                                startDirection: StartDirection.end,
                                 duration: 400,
                                 child: Container(
                                   width: double.infinity,

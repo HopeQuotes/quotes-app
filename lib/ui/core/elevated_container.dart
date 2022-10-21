@@ -9,6 +9,8 @@ class ElevatedContainer extends StatefulWidget {
   final Color color;
   final Gradient? gradient;
   final EdgeInsets margin;
+  final double? spread;
+  final double? blur;
 
   @override
   State<ElevatedContainer> createState() => _ElevatedContainerState();
@@ -18,6 +20,8 @@ class ElevatedContainer extends StatefulWidget {
     this.height = 128,
     this.width = double.infinity,
     this.color = Colors.white,
+    this.spread = 10.0,
+    this.blur = 18.0,
     this.gradient,
     this.margin = EdgeInsets.zero,
   });
@@ -42,8 +46,8 @@ class _ElevatedContainerState extends State<ElevatedContainer> {
               boxShadow: [
                 BoxShadow(
                   color: Colors.black12.withOpacity(0.05),
-                  blurRadius: 18.0,
-                  spreadRadius: 10.0,
+                  blurRadius: widget.spread ?? 18,
+                  spreadRadius: widget.blur ?? 10,
                   offset: const Offset(0, 0), // shadow direction: bottom right
                 )
               ],
