@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:quotes/ui/screens/entrance/input.dart';
 import 'package:quotes/ui/screens/entrance/button.dart';
+import 'package:quotes/ui/screens/entrance/input.dart';
 import 'package:quotes/ui/screens/entrance/login_text.dart';
 
-import '../../../../resources/colors.dart';
-import '../../../core/elevated_container.dart';
 import '../../main/core.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -40,17 +37,18 @@ class LoginScreen extends StatelessWidget {
           ),
         ),
         Align(
-            alignment: Alignment.bottomLeft,
-            child: Container(
-              transform:
-                  Matrix4.translationValues(MediaQuery.of(context).size.width * .36, 65.0, 0.0),
-              width: double.infinity,
-              child: Icon(
-                Icons.circle_outlined,
-                size: 200,
-                color: Colors.white.withAlpha(124),
-              ),
-            )),
+          alignment: Alignment.bottomLeft,
+          child: Container(
+            transform:
+                Matrix4.translationValues(MediaQuery.of(context).size.width * .36, 65.0, 0.0),
+            width: double.infinity,
+            child: Icon(
+              Icons.circle_outlined,
+              size: 200,
+              color: Colors.white.withAlpha(124),
+            ),
+          ),
+        ),
         Align(
           alignment: Alignment.center,
           child: Column(

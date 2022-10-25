@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quotes/resources/colors.dart';
 import 'package:quotes/ui/core/elevated_container.dart';
@@ -17,70 +18,93 @@ class HomeScreen extends StatelessWidget {
         itemCount: 100,
         itemBuilder: (BuildContext context, int index) {
           if (index > 0) {
-            return TransitionAnimWidget(
-              duration: 700 + index,
-              child: ElevatedContainer(
-                height: 232,
-                margin: const EdgeInsets.all(18),
-                child: ClipRRect(
-                  child: Stack(
-                    children: [
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: Text(
-                              style: GoogleFonts.nunito(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16,
-                                  fontStyle: FontStyle.italic,
-                                  color: Colors.black26),
-                              textAlign: TextAlign.center,
-                              "- Oprah Winfrey -"),
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: Container(
-                          margin: const EdgeInsets.all(24),
-                          alignment: Alignment.center,
-                          child: Text(
-                              style: GoogleFonts.nunito(fontWeight: FontWeight.w600, fontSize: 16),
-                              textAlign: TextAlign.center,
-                              "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough."),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(right: 1000, bottom: 1300),
-                        child: Icon(
-                          Icons.circle_outlined,
-                          size: 125,
-                          color: Colors.indigo.withAlpha(6),
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: Container(
-                          margin: const EdgeInsets.only(left: 200, top: 80),
-                          child: Icon(
-                            Icons.favorite_border,
-                            size: 200,
-                            color: Colors.indigo.withAlpha(8),
+            return Slidable(
+              key: ValueKey(index.toString()),
+              endActionPane: ActionPane(
+                motion: const ScrollMotion(),
+                dragDismissible: false,
+                children: [
+                  SlidableAction(
+                    autoClose: false,
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(24), bottomLeft: Radius.circular(24)),
+                    foregroundColor: Colors.redAccent,
+                    icon: Icons.delete,
+                    onPressed: (context) {},
+                  ),
+                  SlidableAction(
+                    foregroundColor: Colors.redAccent,
+                    icon: Icons.share,
+                    onPressed: (context) {},
+                  ),
+                ],
+              ),
+              child: TransitionAnimWidget(
+                duration: 700 + index,
+                child: ElevatedContainer(
+                  height: 232,
+                  margin: const EdgeInsets.all(18),
+                  child: ClipRRect(
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Text(
+                                style: GoogleFonts.nunito(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    fontStyle: FontStyle.italic,
+                                    color: Colors.black26),
+                                textAlign: TextAlign.center,
+                                "- Oprah Winfrey -"),
                           ),
                         ),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Container(
-                          margin: const EdgeInsets.only(left: 24, top: 80, bottom: 32),
-                          child: Icon(
-                            Icons.rectangle_outlined,
-                            size: 62,
-                            color: Colors.indigo.withAlpha(8),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: Container(
+                            margin: const EdgeInsets.all(24),
+                            alignment: Alignment.center,
+                            child: Text(
+                                style:
+                                    GoogleFonts.nunito(fontWeight: FontWeight.w600, fontSize: 16),
+                                textAlign: TextAlign.center,
+                                "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough."),
                           ),
                         ),
-                      ),
-                    ],
+                        Container(
+                          margin: const EdgeInsets.only(right: 1000, bottom: 1300),
+                          child: Icon(
+                            Icons.circle_outlined,
+                            size: 125,
+                            color: Colors.indigo.withAlpha(6),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: Container(
+                            margin: const EdgeInsets.only(left: 200, top: 80),
+                            child: Icon(
+                              Icons.favorite_border,
+                              size: 200,
+                              color: Colors.indigo.withAlpha(8),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Container(
+                            margin: const EdgeInsets.only(left: 24, top: 80, bottom: 32),
+                            child: Icon(
+                              Icons.rectangle_outlined,
+                              size: 62,
+                              color: Colors.indigo.withAlpha(8),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
