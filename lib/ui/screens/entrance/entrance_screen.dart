@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quotes/resources/colors.dart';
 import 'package:quotes/ui/core/elevated_container.dart';
-import 'package:quotes/ui/screens/entrance/login_screen.dart';
-import 'package:quotes/ui/screens/entrance/register_screen.dart';
+import 'package:quotes/ui/screens/entrance/login/login_screen.dart';
+import 'package:quotes/ui/screens/entrance/register/register_screen.dart';
 import 'package:quotes/utils/array.dart';
 import 'package:quotes/utils/constants.dart';
 

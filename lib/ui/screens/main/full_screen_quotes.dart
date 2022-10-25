@@ -11,13 +11,33 @@ class FullScreenQuotes extends StatefulWidget {
   State<FullScreenQuotes> createState() => _FullScreenQuotesState();
 }
 
+class ExampleQuoteObject {
+  String url;
+  bool isLiked;
+
+  ExampleQuoteObject({
+    required this.url,
+    required this.isLiked,
+  });
+}
+
 class _FullScreenQuotesState extends State<FullScreenQuotes> {
   var quotes = [
-    "https://i.picsum.photos/id/455/200/300.jpg?hmac=IRhIhAnPAK71fkZ41MDW7ZOQWyMDZcBkbWPUUUp9Y3Q",
-    "https://i.picsum.photos/id/295/200/300.jpg?hmac=b6Ets6Bu47pFHcU4UK7lI6xYkfy48orifVzWeHAe0zM",
-    "https://i.picsum.photos/id/973/200/300.jpg?hmac=gFjS6R63ZUmM9pkLFyPxuEmsxvZ_e8VJxB3mcXpvTUQ"
+    ExampleQuoteObject(
+        url:
+            "https://i.picsum.photos/id/455/200/300.jpg?hmac=IRhIhAnPAK71fkZ41MDW7ZOQWyMDZcBkbWPUUUp9Y3Q",
+        isLiked: false),
+    ExampleQuoteObject(
+        url:
+            "https://i.picsum.photos/id/295/200/300.jpg?hmac=b6Ets6Bu47pFHcU4UK7lI6xYkfy48orifVzWeHAe0zM",
+        isLiked: true),
+    ExampleQuoteObject(
+        url:
+            "https://i.picsum.photos/id/973/200/300.jpg?hmac=gFjS6R63ZUmM9pkLFyPxuEmsxvZ_e8VJxB3mcXpvTUQ",
+        isLiked: false),
   ];
   var pageIndex = 0;
+  var isLiked = false;
   final PageController controller = PageController();
 
   @override
@@ -30,7 +50,7 @@ class _FullScreenQuotesState extends State<FullScreenQuotes> {
             duration: const Duration(milliseconds: 600),
             imageFit: BoxFit.cover,
             hash: 'L5H2EC=PM+yV0g-mq.wG9c010J}I',
-            image: quotes[pageIndex],
+            image: quotes[pageIndex].url,
           ),
         ),
         Align(
@@ -38,7 +58,12 @@ class _FullScreenQuotesState extends State<FullScreenQuotes> {
           child: PageView(
             onPageChanged: (page) {
               setState(() {
-                pageIndex = page;
+                isLiked = quotes[page].isLiked;
+              });
+              Future.delayed(const Duration(milliseconds: 1200), () {
+                setState(() {
+                  pageIndex = page;
+                });
               });
             },
             scrollDirection: Axis.vertical,
@@ -113,20 +138,26 @@ class _FullScreenQuotesState extends State<FullScreenQuotes> {
                 startDirection: StartDirection.bottom,
                 duration: 400,
                 child: Container(
-                  margin: const EdgeInsets.only(right: 12, top: 24, bottom: 24),
-                  padding: const EdgeInsets.all(6),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withAlpha(128),
-                    borderRadius: const BorderRadius.all(
-                        Radius.circular(12.0) //                 <--- border radius here
-                        ),
-                  ),
-                  child: const Icon(
-                    Icons.favorite_border,
-                    size: 36,
-                    color: Colors.white,
-                  ),
-                ),
+                    margin: const EdgeInsets.only(right: 12, top: 24, bottom: 24),
+                    padding: const EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withAlpha(50),
+                      borderRadius: const BorderRadius.all(
+                          Radius.circular(12.0) //                 <--- border radius here
+                          ),
+                    ),
+                    child: GestureDetector(
+                      child: Icon(
+                        isLiked ? Icons.favorite : Icons.favorite_border,
+                        size: 36,
+                        color: isLiked ? Colors.redAccent : Colors.white,
+                      ),
+                      onTap: () {
+                        setState(() {
+                          isLiked = !isLiked;
+                        });
+                      },
+                    )),
               ),
               TransitionAnimWidget(
                 startDirection: StartDirection.bottom,
@@ -135,7 +166,7 @@ class _FullScreenQuotesState extends State<FullScreenQuotes> {
                   margin: const EdgeInsets.only(right: 12, top: 24, bottom: 24),
                   padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
-                    color: Colors.grey.withAlpha(128),
+                    color: Colors.grey.withAlpha(50),
                     borderRadius: const BorderRadius.all(
                         Radius.circular(12.0) //                 <--- border radius here
                         ),
