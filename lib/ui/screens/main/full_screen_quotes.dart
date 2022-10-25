@@ -138,26 +138,27 @@ class _FullScreenQuotesState extends State<FullScreenQuotes> {
                 startDirection: StartDirection.bottom,
                 duration: 400,
                 child: Container(
-                    margin: const EdgeInsets.only(right: 12, top: 24, bottom: 24),
-                    padding: const EdgeInsets.all(6),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.withAlpha(50),
-                      borderRadius: const BorderRadius.all(
-                          Radius.circular(12.0) //                 <--- border radius here
-                          ),
+                  margin: const EdgeInsets.only(right: 12, top: 24, bottom: 24),
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withAlpha(50),
+                    borderRadius: const BorderRadius.all(
+                        Radius.circular(12.0) //                 <--- border radius here
+                        ),
+                  ),
+                  child: GestureDetector(
+                    child: Icon(
+                      isLiked ? Icons.favorite : Icons.favorite_border,
+                      size: 36,
+                      color: isLiked ? Colors.redAccent : Colors.white,
                     ),
-                    child: GestureDetector(
-                      child: Icon(
-                        isLiked ? Icons.favorite : Icons.favorite_border,
-                        size: 36,
-                        color: isLiked ? Colors.redAccent : Colors.white,
-                      ),
-                      onTap: () {
-                        setState(() {
-                          isLiked = !isLiked;
-                        });
-                      },
-                    )),
+                    onTap: () {
+                      setState(() {
+                        isLiked = !isLiked;
+                      });
+                    },
+                  ),
+                ),
               ),
               TransitionAnimWidget(
                 startDirection: StartDirection.bottom,
