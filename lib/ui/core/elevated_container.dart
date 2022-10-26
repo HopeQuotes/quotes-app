@@ -11,6 +11,7 @@ class ElevatedContainer extends StatefulWidget {
   final EdgeInsets margin;
   final double? spread;
   final double? blur;
+  final double radius;
 
   @override
   State<ElevatedContainer> createState() => _ElevatedContainerState();
@@ -22,6 +23,7 @@ class ElevatedContainer extends StatefulWidget {
     this.color = Colors.white,
     this.spread = 10.0,
     this.blur = 18.0,
+    this.radius = 24,
     this.gradient,
     this.margin = EdgeInsets.zero,
   });
@@ -40,7 +42,7 @@ class _ElevatedContainerState extends State<ElevatedContainer> {
         child: GestureDetector(
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(Corners.cornerRadius),
+              borderRadius: BorderRadius.circular(widget.radius),
               color: widget.color,
               gradient: widget.gradient,
               boxShadow: [
@@ -54,13 +56,13 @@ class _ElevatedContainerState extends State<ElevatedContainer> {
             ),
             child: Material(
               color: widget.color,
-              borderRadius: BorderRadius.circular(Corners.cornerRadius),
+              borderRadius: BorderRadius.circular(widget.radius),
               child: InkWell(
                 onTap: () {},
-                borderRadius: BorderRadius.circular(24),
+                borderRadius: BorderRadius.circular(widget.radius),
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Corners.cornerRadius),
+                    borderRadius: BorderRadius.circular(widget.radius),
                     gradient: widget.gradient,
                   ),
                   child: widget.child,

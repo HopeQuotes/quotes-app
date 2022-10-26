@@ -32,7 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  circle_nav_bar: ^1.0.2
+  motion_tab_bar: ^0.1.5
   flutter_blurhash: ^0.7.0
   google_fonts: ^3.0.1
   flutter_otp_text_field: ^1.1.1

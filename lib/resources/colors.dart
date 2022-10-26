@@ -11,6 +11,10 @@ class AppColors {
     return const Color(0xff7a6bf5);
   }
 
+  static Color get red {
+    return const Color(0xffc65159);
+  }
+
   static Color get white {
     return Colors.white;
   }
