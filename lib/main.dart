@@ -3,9 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quotes/resources/colors.dart';
 import 'package:quotes/ui/screens/entrance/entrance_screen.dart';
-import 'package:quotes/ui/screens/main/full_screen_quotes.dart';
-import 'package:quotes/ui/screens/main/home.dart';
-import 'package:quotes/ui/screens/main/profile.dart';
 
 void main() {
   runApp(const MyApp());

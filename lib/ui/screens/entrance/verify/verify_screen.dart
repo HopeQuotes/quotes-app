@@ -6,7 +6,7 @@ import 'package:quotes/ui/screens/entrance/login_text.dart';
 import 'package:quotes/utils/constants.dart';
 
 import '../../../../resources/colors.dart';
-import '../../main/core.dart';
+import '../../../core/core.dart';
 
 class VerifyScreen extends StatelessWidget {
   const VerifyScreen({super.key});

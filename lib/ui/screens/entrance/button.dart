@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../resources/colors.dart';
 import '../../core/elevated_container.dart';
-import '../main/core.dart';
 
 class Button extends StatelessWidget {
   String title;

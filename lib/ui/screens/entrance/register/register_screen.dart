@@ -1,13 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:quotes/ui/screens/entrance/button.dart';
 import 'package:quotes/ui/screens/entrance/input.dart';
 import 'package:quotes/ui/screens/entrance/login_text.dart';
 
-import '../../../../resources/colors.dart';
-import '../../../core/elevated_container.dart';
-import '../../main/core.dart';
 import '../verify/verify_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -70,7 +66,7 @@ class RegisterScreen extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute<void>(
-                builder: (BuildContext context) => VerifyScreen(),
+                builder: (BuildContext context) => const VerifyScreen(),
               ),
             );
           },

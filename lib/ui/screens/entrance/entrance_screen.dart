@@ -1,17 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:quotes/resources/colors.dart';
-import 'package:quotes/ui/core/elevated_container.dart';
 import 'package:quotes/ui/screens/entrance/login/login_screen.dart';
 import 'package:quotes/ui/screens/entrance/register/register_screen.dart';
 import 'package:quotes/utils/array.dart';
-import 'package:quotes/utils/constants.dart';
-
-import '../../core/translate_anim_widget.dart';
-import '../main/core.dart';
 
 class EntranceScreen extends StatefulWidget {
+  const EntranceScreen({super.key});
+
   @override
   State<EntranceScreen> createState() => _EntranceScreenState();
 }

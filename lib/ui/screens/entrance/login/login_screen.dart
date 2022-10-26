@@ -4,7 +4,8 @@ import 'package:quotes/ui/screens/entrance/button.dart';
 import 'package:quotes/ui/screens/entrance/input.dart';
 import 'package:quotes/ui/screens/entrance/login_text.dart';
 
-import '../../main/core.dart';
+import '../../../core/core.dart';
+
 
 class LoginScreen extends StatelessWidget {
   @override

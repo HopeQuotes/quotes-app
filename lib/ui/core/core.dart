@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:motion_tab_bar/motiontabbar.dart';
-import 'package:quotes/ui/screens/main/profile.dart';
+import 'package:quotes/ui/screens/profile/profile.dart';
 
-import 'full_screen_quotes.dart';
-import 'home.dart';
+import '../screens/full_screen_quote/full_screen_quotes.dart';
+import '../screens/home/home.dart';
 
 class Core extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class Core extends StatefulWidget {
 class _CoreState extends State<Core> {
   final _mainScreens = [
     HomeScreen(),
-    FullScreenQuotes(),
+    const FullScreenQuotes(),
     Profile(),
   ];
 
