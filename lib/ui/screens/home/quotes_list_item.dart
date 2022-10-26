@@ -19,20 +19,21 @@ class QuoteItem extends StatelessWidget {
       child: Slidable(
         key: ValueKey(index.toString()),
         endActionPane: ActionPane(
-          extentRatio: 0.45,
+          extentRatio: 0.65,
           motion: const ScrollMotion(),
           dragDismissible: false,
           children: [
             CustomSlidableAction(
-              padding: const EdgeInsets.only(left: 24, right: 4),
+              flex: 1,
+              padding: const EdgeInsets.only(left: 16, right: 0),
               backgroundColor: Colors.transparent,
               onPressed: (onPressed) {},
               child: ElevatedContainer(
                 radius: 16,
-                height: 52,
+                height: 56,
                 blur: 12,
                 spread: 14,
-                width: 52,
+                width: double.infinity,
                 child: const Icon(
                   Icons.thumb_up_off_alt_outlined,
                   color: Colors.black54,
@@ -40,7 +41,8 @@ class QuoteItem extends StatelessWidget {
               ),
             ),
             CustomSlidableAction(
-              padding: const EdgeInsets.only(left: 8, right: 20),
+              flex: 1,
+              padding: const EdgeInsets.only(left: 10, right: 8),
               backgroundColor: Colors.transparent,
               onPressed: (onPressed) {},
               child: ElevatedContainer(
@@ -48,10 +50,28 @@ class QuoteItem extends StatelessWidget {
                 color: AppColors.red,
                 blur: 12,
                 spread: 14,
-                height: 52,
-                width: 52,
+                height: 56,
+                width: double.infinity,
                 child: const Icon(
                   Icons.thumb_down_off_alt_outlined,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            CustomSlidableAction(
+              flex: 1,
+              padding: const EdgeInsets.only(left: 8, right: 12),
+              backgroundColor: Colors.transparent,
+              onPressed: (onPressed) {},
+              child: ElevatedContainer(
+                radius: 16,
+                color: AppColors.indigo,
+                blur: 12,
+                spread: 14,
+                height: 56,
+                width: double.infinity,
+                child: const Icon(
+                  Icons.share,
                   color: Colors.white,
                 ),
               ),
