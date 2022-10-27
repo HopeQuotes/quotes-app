@@ -9,20 +9,16 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 700,
-      color: AppColors.backgroundColor,
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: 100,
-        itemBuilder: (BuildContext context, int index) {
-          if (index > 0) {
-            return QuoteItem(index: index);
-          } else {
-            return DashBoard();
-          }
-        },
-      ),
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: 100,
+      itemBuilder: (BuildContext context, int index) {
+        if (index > 0) {
+          return QuoteItem(index: index);
+        } else {
+          return DashBoard();
+        }
+      },
     );
   }
 }
