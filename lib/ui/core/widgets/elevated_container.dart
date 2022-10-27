@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/constants.dart';
+import '../../../utils/constants.dart';
 
 class ElevatedContainer extends StatefulWidget {
   final Widget child;
@@ -21,8 +21,8 @@ class ElevatedContainer extends StatefulWidget {
     this.height = 128,
     this.width = double.infinity,
     this.color = Colors.white,
-    this.spread = 10.0,
-    this.blur = 18.0,
+    this.spread = 232.0,
+    this.blur = 24.0,
     this.radius = 24,
     this.gradient,
     this.margin = EdgeInsets.zero,

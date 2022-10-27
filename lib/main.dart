@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quotes/resources/colors.dart';
-import 'package:quotes/ui/screens/entrance/entrance_screen.dart';
+import 'package:quotes/ui/screens/entrance/entrance_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,8 +28,6 @@ class Quotes extends StatefulWidget {
 }
 
 class _QuotesState extends State<Quotes> {
-
-
   @override
   void initState() {
     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
@@ -38,7 +36,7 @@ class _QuotesState extends State<Quotes> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(child: EntranceScreen()),
     );
   }

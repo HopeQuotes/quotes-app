@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quotes/resources/colors.dart';
-import 'package:quotes/ui/core/elevated_container.dart';
-import 'package:quotes/ui/core/translate_anim_widget.dart';
+import 'package:quotes/ui/core/widgets/elevated_container.dart';
+import 'package:quotes/ui/core/widgets/translate_anim_widget.dart';
 
 import '../../../utils/constants.dart';
 
@@ -15,7 +15,7 @@ class QuoteItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.all(16),
       child: Slidable(
         key: ValueKey(index.toString()),
         endActionPane: ActionPane(

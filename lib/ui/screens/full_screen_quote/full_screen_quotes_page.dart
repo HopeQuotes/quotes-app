@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../core/translate_anim_widget.dart';
+import '../../core/widgets/translate_anim_widget.dart';
 
-class FullScreenQuotes extends StatefulWidget {
-  const FullScreenQuotes({super.key});
+class FullScreenQuotesPage extends StatefulWidget {
+  const FullScreenQuotesPage({super.key});
 
   @override
-  State<FullScreenQuotes> createState() => _FullScreenQuotesState();
+  State<FullScreenQuotesPage> createState() => _FullScreenQuotesState();
 }
 
 class ExampleQuoteObject {
@@ -21,7 +21,7 @@ class ExampleQuoteObject {
   });
 }
 
-class _FullScreenQuotesState extends State<FullScreenQuotes> {
+class _FullScreenQuotesState extends State<FullScreenQuotesPage> {
   var quotes = [
     ExampleQuoteObject(
         url:

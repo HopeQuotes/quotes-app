@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quotes/ui/core/elevated_container.dart';
+import 'package:quotes/ui/core/widgets/elevated_container.dart';
 
 import '../../../resources/colors.dart';
 import '../../../utils/constants.dart';
-import '../../core/translate_anim_widget.dart';
+import '../../core/widgets/translate_anim_widget.dart';
 
-class Profile extends StatelessWidget {
+class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

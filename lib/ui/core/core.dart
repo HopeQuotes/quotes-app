@@ -2,10 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:motion_tab_bar/motiontabbar.dart';
-import 'package:quotes/ui/screens/profile/profile.dart';
+import 'package:quotes/ui/navigation/navigator.dart';
+import 'package:quotes/ui/screens/my_quotes/my_quotes_page.dart';
+import 'package:quotes/ui/screens/profile/profile_page.dart';
+import 'package:quotes/ui/screens/publish/publish_page.dart';
 
-import '../screens/full_screen_quote/full_screen_quotes.dart';
-import '../screens/home/home.dart';
+import '../screens/full_screen_quote/full_screen_quotes_page.dart';
+import '../screens/home/home_page.dart';
 
 class Core extends StatefulWidget {
   @override
@@ -14,9 +17,11 @@ class Core extends StatefulWidget {
 
 class _CoreState extends State<Core> {
   final _mainScreens = [
-    HomeScreen(),
-    const FullScreenQuotes(),
-    Profile(),
+    const HomePage(),
+    const FullScreenQuotesPage(),
+    PublishPage(),
+    MyQuotesPage(),
+    ProfilePage(),
   ];
 
   int screenIndex = 0;
@@ -25,18 +30,28 @@ class _CoreState extends State<Core> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: MotionTabBar(
-        labels: const ["Home", "Quotes", "Profile"],
+        labels: const ["Home", "Quotes", "Publish", "My quotes", "Profile"],
         initialSelectedTab: "Home",
         tabIconColor: Colors.indigo,
         tabSelectedColor: Colors.indigo,
         onTabItemSelected: (int value) {
           setState(() {
-            screenIndex = value;
+            if (value == 2) {
+              context.navigateTo(PublishPage());
+            } else {
+              screenIndex = value;
+            }
           });
         },
-        icons: const [Icons.home_outlined, Icons.format_quote_rounded, Icons.person_outline],
+        icons: const [
+          Icons.home_outlined,
+          Icons.my_library_books_rounded,
+          Icons.add,
+          Icons.format_quote_rounded,
+          Icons.person_outline
+        ],
         textStyle:
-            GoogleFonts.nunito(fontWeight: FontWeight.w600, fontSize: 16, color: Colors.black26),
+            GoogleFonts.nunito(fontWeight: FontWeight.w600, fontSize: 12, color: Colors.black26),
       ),
       body: _mainScreens[screenIndex],
     );

@@ -4,8 +4,8 @@ import 'package:quotes/ui/screens/home/quotes_list_item.dart';
 
 import 'dashboard.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
