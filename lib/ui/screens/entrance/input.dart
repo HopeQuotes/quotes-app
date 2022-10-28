@@ -12,6 +12,7 @@ class Input extends StatelessWidget {
   double blur;
   double spread;
   final TextEditingController? controller;
+  final Function(String)? onSubmit;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,9 @@ class Input extends StatelessWidget {
       ),
       margin: margin,
       child: TextField(
+        onSubmitted: (str) {
+          onSubmit?.call(str);
+        },
         focusNode: focusNode,
         keyboardType: multiLine ? TextInputType.multiline : TextInputType.name,
         maxLines: multiLine ? null : 1,
@@ -67,6 +71,7 @@ class Input extends StatelessWidget {
     this.focusNode,
     this.controller,
     this.blur = 4.0,
+    this.onSubmit,
     this.spread = 4.0,
     required this.margin,
   });
