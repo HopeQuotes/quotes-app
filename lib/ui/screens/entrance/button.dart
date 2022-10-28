@@ -17,7 +17,7 @@ class Button extends StatelessWidget {
         blur: 4,
         color: AppColors.indigo.withAlpha(180),
         margin: const EdgeInsets.all(24),
-        height: 52,
+        height: 62,
         child: InkWell(
           borderRadius: BorderRadius.circular(24),
           child: Container(

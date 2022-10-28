@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quotes/resources/colors.dart';
 import 'package:quotes/ui/navigation/navigator.dart';
+import 'package:quotes/ui/screens/entrance/button.dart';
 
 import '../../core/widgets/translate_anim_widget.dart';
 import '../entrance/input.dart';
 import '../entrance/login_text.dart';
-import 'body_input_page.dart';
 
 enum VisibilityState { invisible, gone, visible }
 
@@ -22,10 +22,10 @@ class _PublishPageState extends State<PublishPage> {
   var titleVisible = VisibilityState.visible;
   var authorInputVisible = VisibilityState.visible;
   var bodyInputVisible = VisibilityState.visible;
+  var publishButtonInputVisible = VisibilityState.visible;
   var visibilityAnimDurationMillis = 1000;
-  double? bodyHeight = 120.0;
 
-  var list = ["", "", ''];
+  TextEditingController bodyController = TextEditingController();
 
   @override
   void initState() {
@@ -41,6 +41,7 @@ class _PublishPageState extends State<PublishPage> {
           titleVisible = VisibilityState.invisible;
           backButtonVisible = VisibilityState.invisible;
           bodyInputVisible = VisibilityState.invisible;
+          publishButtonInputVisible = VisibilityState.invisible;
         });
       }
     });
@@ -51,6 +52,7 @@ class _PublishPageState extends State<PublishPage> {
           authorInputVisible = VisibilityState.invisible;
           titleVisible = VisibilityState.invisible;
           backButtonVisible = VisibilityState.invisible;
+          publishButtonInputVisible = VisibilityState.invisible;
         }
       });
     });
@@ -66,22 +68,23 @@ class _PublishPageState extends State<PublishPage> {
           child: Column(
             children: [
               const Padding(
-                padding: EdgeInsets.only(top: 24),
+                padding: EdgeInsets.only(top: 36),
               ),
               AnimatedContainer(
+                curve: Curves.fastOutSlowIn,
                 height: 42,
-                duration: const Duration(milliseconds: 200),
+                duration: const Duration(milliseconds: 100),
                 child: Row(
                   children: [
                     IconButton(
                       onPressed: () {
                         if (titleVisible == VisibilityState.invisible) {
                           setState(() {
-                            bodyHeight = 120;
                             authorInputVisible = VisibilityState.visible;
                             titleVisible = VisibilityState.visible;
                             backButtonVisible = VisibilityState.visible;
                             bodyInputVisible = VisibilityState.visible;
+                            publishButtonInputVisible = VisibilityState.visible;
                           });
                         } else {
                           context.goBack();
@@ -97,8 +100,10 @@ class _PublishPageState extends State<PublishPage> {
                 ),
               ),
               AnimatedContainer(
+                curve: Curves.fastOutSlowIn,
                 height: titleVisible == VisibilityState.visible ? 100 : 0,
-                duration: Duration(milliseconds: 250),
+                width: titleVisible == VisibilityState.visible ? 600 : 0,
+                duration: const Duration(milliseconds: 250),
                 child: const TitleText(
                   paddingTop: 32,
                   text: 'Publish your quotes',
@@ -108,46 +113,54 @@ class _PublishPageState extends State<PublishPage> {
                 padding: EdgeInsets.only(top: 32),
               ),
               AnimatedContainer(
-                height: authorInputVisible == VisibilityState.visible ? 88 : 0,
-                duration: Duration(milliseconds: 300),
-                child: Container(
-                  margin: const EdgeInsets.only(top: 24),
-                  child: TransitionAnimWidget(
-                    duration: 1000,
-                    startDirection: StartDirection.bottom,
-                    child: Input(
-                      spread: 0,
-                      blur: 0,
-                      focusNode: authorFocusNode,
-                      hint: 'Author name',
-                      margin: const EdgeInsets.only(left: 24, right: 24, top: 0),
+                curve: Curves.fastOutSlowIn,
+                height: authorInputVisible == VisibilityState.visible ? 62 : 0,
+                width: authorInputVisible == VisibilityState.visible ? 600 : 0,
+                duration: const Duration(milliseconds: 300),
+                child: TransitionAnimWidget(
+                  duration: 1000,
+                  startDirection: StartDirection.bottom,
+                  child: Input(
+                    spread: 0,
+                    blur: 0,
+                    focusNode: authorFocusNode,
+                    hint: 'Author name',
+                    margin: const EdgeInsets.only(left: 24, right: 24, top: 0),
+                  ),
+                ),
+              ),
+              AnimatedOpacity(
+                opacity: bodyInputVisible == VisibilityState.visible ? 1.0 : 0,
+                duration: Duration(milliseconds: 100),
+                child: AnimatedContainer(
+                  curve: Curves.fastOutSlowIn,
+                  duration: const Duration(milliseconds: 300),
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 24),
+                    child: TransitionAnimWidget(
+                      duration: 1000,
+                      startDirection: StartDirection.bottom,
+                      child: Input(
+                        controller: bodyController,
+                        spread: 0,
+                        blur: 0,
+                        focusNode: bodyFocusNode,
+                        verticalPadding: 36,
+                        multiLine: true,
+                        hint: 'Quote body...',
+                        margin: const EdgeInsets.only(left: 24, right: 24, top: 0),
+                      ),
                     ),
                   ),
                 ),
               ),
-              AnimatedContainer(
-                onEnd: () {
-                  bodyHeight = null;
-                },
-                height: bodyInputVisible == VisibilityState.visible ? bodyHeight : 0,
-                duration: const Duration(milliseconds: 300),
-                child: Container(
-                  margin: const EdgeInsets.only(top: 24),
-                  child: TransitionAnimWidget(
-                    duration: 1000,
-                    startDirection: StartDirection.bottom,
-                    child: Input(
-                      spread: 0,
-                      blur: 0,
-                      focusNode: bodyFocusNode,
-                      verticalPadding: 36,
-                      multiLine: true,
-                      hint: 'Quote body...',
-                      margin: const EdgeInsets.only(left: 24, right: 24, top: 0),
-                    ),
-                  ),
+              Visibility(
+                visible: publishButtonInputVisible == VisibilityState.visible,
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Button(title: 'Pubish', onClick: () {}),
                 ),
-              )
+              ),
             ],
           ),
         ),

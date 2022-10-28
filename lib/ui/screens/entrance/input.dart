@@ -4,13 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../resources/colors.dart';
 
 class Input extends StatelessWidget {
-  String hint;
-  EdgeInsets margin;
+  final String hint;
+  final EdgeInsets margin;
   bool multiLine = false;
-  FocusNode? focusNode;
+  final FocusNode? focusNode;
   double verticalPadding = 0.0;
   double blur;
   double spread;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class Input extends StatelessWidget {
         keyboardType: multiLine ? TextInputType.multiline : TextInputType.name,
         maxLines: multiLine ? null : 1,
         textAlign: TextAlign.start,
-        controller: TextEditingController(),
+        controller: controller,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(24),
@@ -64,6 +65,7 @@ class Input extends StatelessWidget {
     this.multiLine = false,
     this.verticalPadding = 20,
     this.focusNode,
+    this.controller,
     this.blur = 4.0,
     this.spread = 4.0,
     required this.margin,
