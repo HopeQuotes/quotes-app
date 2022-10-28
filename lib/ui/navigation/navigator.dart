@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 
 extension NavigatorCustom<T> on BuildContext {
   void navigateTo(Widget widget) {
-    Navigator.of(this).push(CustomPageRoute(widget));
+    Navigator.push(
+      this,
+      MaterialPageRoute(builder: (context) => widget),
+    );
   }
 
   void goBack() {

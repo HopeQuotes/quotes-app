@@ -15,7 +15,7 @@ class _BodyInputPageState extends State<BodyInputPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return Scaffold(body: Material(
       color: AppColors.backgroundColor,
       child: Column(
         children: [
@@ -45,6 +45,6 @@ class _BodyInputPageState extends State<BodyInputPage> {
               )),
         ],
       ),
-    );
+    ),);
   }
 }

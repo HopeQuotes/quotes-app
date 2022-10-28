@@ -24,6 +24,8 @@ class _PublishPageState extends State<PublishPage> {
   var bodyInputVisible = VisibilityState.visible;
   var visibilityAnimDurationMillis = 1000;
 
+  var list = ["", "", ''];
+
   @override
   void initState() {
     observeFocusChanges();
@@ -32,14 +34,24 @@ class _PublishPageState extends State<PublishPage> {
 
   void observeFocusChanges() {
     authorFocusNode.addListener(() {
-      //
+      if (authorFocusNode.hasFocus) {
+        setState(() {
+          authorInputVisible = VisibilityState.visible;
+          titleVisible = VisibilityState.invisible;
+          backButtonVisible = VisibilityState.invisible;
+          bodyInputVisible = VisibilityState.invisible;
+        });
+      }
     });
 
     bodyFocusNode.addListener(() {
-      if (bodyFocusNode.hasFocus) {
-        context.navigateTo(BodyInputPage());
-        bodyFocusNode.unfocus();
-      }
+      setState(() {
+        if (bodyFocusNode.hasFocus) {
+          authorInputVisible = VisibilityState.invisible;
+          titleVisible = VisibilityState.invisible;
+          backButtonVisible = VisibilityState.invisible;
+        }
+      });
     });
   }
 
@@ -55,43 +67,65 @@ class _PublishPageState extends State<PublishPage> {
               const Padding(
                 padding: EdgeInsets.only(top: 24),
               ),
-              Row(
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      context.goBack();
-                    },
-                    icon: const Icon(
-                      Icons.keyboard_arrow_left_outlined,
-                      size: 42,
+              AnimatedContainer(
+                height: 42,
+                duration: const Duration(milliseconds: 200),
+                child: Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        if (titleVisible == VisibilityState.invisible) {
+                          setState(() {
+                            authorInputVisible = VisibilityState.visible;
+                            titleVisible = VisibilityState.visible;
+                            backButtonVisible = VisibilityState.visible;
+                            bodyInputVisible = VisibilityState.visible;
+                          });
+                        } else {
+                          context.goBack();
+                        }
+                      },
+                      icon: const Icon(
+                        Icons.keyboard_arrow_left_outlined,
+                        size: 42,
+                      ),
                     ),
-                  ),
-                  const Spacer()
-                ],
+                    const Spacer()
+                  ],
+                ),
               ),
-              const TitleText(
-                paddingTop: 32,
-                text: 'Publish your quotes',
+              AnimatedContainer(
+                height: titleVisible == VisibilityState.visible ? 100 : 0,
+                duration: Duration(milliseconds: 250),
+                child: const TitleText(
+                  paddingTop: 32,
+                  text: 'Publish your quotes',
+                ),
               ),
               const Padding(
                 padding: EdgeInsets.only(top: 32),
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 24),
-                child: TransitionAnimWidget(
-                  duration: 1000,
-                  startDirection: StartDirection.bottom,
-                  child: Input(
-                    spread: 0,
-                    blur: 0,
-                    focusNode: authorFocusNode,
-                    hint: 'Author name',
-                    margin: const EdgeInsets.only(left: 24, right: 24, top: 0),
+              AnimatedContainer(
+                height: authorInputVisible == VisibilityState.visible ? 88 : 0,
+                duration: Duration(milliseconds: 300),
+                child: Container(
+                  margin: const EdgeInsets.only(top: 24),
+                  child: TransitionAnimWidget(
+                    duration: 1000,
+                    startDirection: StartDirection.bottom,
+                    child: Input(
+                      spread: 0,
+                      blur: 0,
+                      focusNode: authorFocusNode,
+                      hint: 'Author name',
+                      margin: const EdgeInsets.only(left: 24, right: 24, top: 0),
+                    ),
                   ),
                 ),
               ),
-              Hero(
-                tag: 'body',
+              AnimatedContainer(
+                height: bodyInputVisible == VisibilityState.visible ? 120 : 0,
+                duration: Duration(milliseconds: 300),
                 child: Container(
                   margin: const EdgeInsets.only(top: 24),
                   child: TransitionAnimWidget(
@@ -108,7 +142,7 @@ class _PublishPageState extends State<PublishPage> {
                     ),
                   ),
                 ),
-              ),
+              )
             ],
           ),
         ),
