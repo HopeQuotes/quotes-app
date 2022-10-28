@@ -23,6 +23,7 @@ class _PublishPageState extends State<PublishPage> {
   var authorInputVisible = VisibilityState.visible;
   var bodyInputVisible = VisibilityState.visible;
   var visibilityAnimDurationMillis = 1000;
+  double? bodyHeight = 120.0;
 
   var list = ["", "", ''];
 
@@ -76,6 +77,7 @@ class _PublishPageState extends State<PublishPage> {
                       onPressed: () {
                         if (titleVisible == VisibilityState.invisible) {
                           setState(() {
+                            bodyHeight = 120;
                             authorInputVisible = VisibilityState.visible;
                             titleVisible = VisibilityState.visible;
                             backButtonVisible = VisibilityState.visible;
@@ -124,8 +126,11 @@ class _PublishPageState extends State<PublishPage> {
                 ),
               ),
               AnimatedContainer(
-                height: bodyInputVisible == VisibilityState.visible ? 120 : 0,
-                duration: Duration(milliseconds: 300),
+                onEnd: () {
+                  bodyHeight = null;
+                },
+                height: bodyInputVisible == VisibilityState.visible ? bodyHeight : 0,
+                duration: const Duration(milliseconds: 300),
                 child: Container(
                   margin: const EdgeInsets.only(top: 24),
                   child: TransitionAnimWidget(
