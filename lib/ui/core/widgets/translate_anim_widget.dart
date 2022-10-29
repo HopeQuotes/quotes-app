@@ -17,11 +17,15 @@ class TransitionAnimWidget extends StatefulWidget {
   final Widget child;
   final int duration;
   final StartDirection startDirection;
+  final Function? onEnd;
+  final bool animate;
 
   const TransitionAnimWidget(
       {required this.child,
       required this.duration,
       this.startDirection = StartDirection.start,
+      this.animate = true,
+      this.onEnd,
       super.key});
 
   @override
@@ -57,14 +61,21 @@ class AnimatedCrossFadeExampleState extends State<TransitionAnimWidget>
 
   @override
   Widget build(BuildContext context) {
-    return SlideTransition(
-      position: _animation,
-      child: AnimatedOpacity(
-        opacity: _visible ? 1.0 : 0.0,
-        duration: Duration(milliseconds: widget.duration),
-        child: widget.child,
-      ),
-    );
+    if (widget.animate) {
+      return SlideTransition(
+        position: _animation,
+        child: AnimatedOpacity(
+          onEnd: () {
+            widget.onEnd?.call();
+          },
+          opacity: _visible ? 1.0 : 0.0,
+          duration: Duration(milliseconds: widget.duration),
+          child: widget.child,
+        ),
+      );
+    } else {
+      return widget.child;
+    }
   }
 
   @override

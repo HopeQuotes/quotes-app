@@ -34,27 +34,6 @@ class _ChipItemState extends State<ChipItem> {
         },
         key: ObjectKey(DateTime.now().millisecondsSinceEpoch.toString()),
         child: GestureDetector(
-          onTapDown: (detail) {
-            setState(() {
-              backgroundColor = AppColors.red;
-              textColor = AppColors.white;
-              iconColor = AppColors.white;
-            });
-          },
-          onTapCancel: () {
-            setState(() {
-              backgroundColor = AppColors.white;
-              textColor = AppColors.black;
-              iconColor = AppColors.indigo;
-            });
-          },
-          onTapUp: (detail) {
-            setState(() {
-              backgroundColor = AppColors.white;
-              textColor = AppColors.black;
-              iconColor = AppColors.indigo;
-            });
-          },
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(24),

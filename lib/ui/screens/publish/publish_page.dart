@@ -29,6 +29,8 @@ class _PublishPageState extends State<PublishPage> {
   var bodyInputVisible = VisibilityState.visible;
   var publishButtonInputVisible = VisibilityState.visible;
   var hashTagsVisible = VisibilityState.visible;
+  var quotesAnimated = false;
+  var publishButtonAnimated = false;
 
   TextEditingController bodyController = TextEditingController();
 
@@ -144,6 +146,9 @@ class _PublishPageState extends State<PublishPage> {
                   startDirection: StartDirection.start,
                   child: Input(
                     spread: 0,
+                    onSubmit: (str) {
+                      showAll();
+                    },
                     blur: 0,
                     focusNode: authorFocusNode,
                     hint: 'Author name',
@@ -161,8 +166,8 @@ class _PublishPageState extends State<PublishPage> {
                 width: hashTagInputVisible == VisibilityState.visible ? 600 : 0,
                 duration: const Duration(milliseconds: 300),
                 child: TransitionAnimWidget(
-                  duration: 600,
-                  startDirection: StartDirection.start,
+                  duration: 400,
+                  startDirection: StartDirection.bottom,
                   child: Input(
                     onSubmit: (str) {
                       hashTags.add(str);
@@ -194,6 +199,9 @@ class _PublishPageState extends State<PublishPage> {
                       child: Input(
                         controller: bodyController,
                         spread: 0,
+                        onSubmit: (str) {
+                          showAll();
+                        },
                         blur: 0,
                         focusNode: bodyFocusNode,
                         verticalPadding: 36,
@@ -207,36 +215,43 @@ class _PublishPageState extends State<PublishPage> {
               ),
               Visibility(
                 visible: hashTagsVisible == VisibilityState.visible,
-                child: Container(
-                  alignment: Alignment.topLeft,
-                  margin: const EdgeInsets.all(16),
-                  child: RichText(
-                    textAlign: TextAlign.start,
-                    text: TextSpan(
-                      children: [
-                        ...hashTags.mapIndexed(
-                          (index, e) => WidgetSpan(
-                            child: ChipItem(
-                              key: ObjectKey(index.toString()),
-                              text: e,
-                              onDelete: (index) {
-                                setState(() {
-                                  hashTags.removeAt(index);
-                                });
-                              },
-                              index: index,
+                child: TransitionAnimWidget(
+                    animate: !quotesAnimated,
+                    onEnd: () {
+                      quotesAnimated = true;
+                    },
+                    duration: 1500,
+                    startDirection: StartDirection.bottom,
+                    child: Container(
+                      alignment: Alignment.topLeft,
+                      margin: const EdgeInsets.all(16),
+                      child: RichText(
+                        textAlign: TextAlign.start,
+                        text: TextSpan(
+                          children: [
+                            ...hashTags.mapIndexed(
+                              (index, e) => WidgetSpan(
+                                child: ChipItem(
+                                  key: ObjectKey(index.toString()),
+                                  text: e,
+                                  onDelete: (index) {
+                                    setState(() {
+                                      hashTags.removeAt(index);
+                                    });
+                                  },
+                                  index: index,
+                                ),
+                              ),
                             ),
-                          ),
+                            WidgetSpan(
+                              child: ChipItemAdd(onClick: () {
+                                showOnlyHashTagInput();
+                              }),
+                            ),
+                          ],
                         ),
-                        WidgetSpan(
-                          child: ChipItemAdd(onClick: () {
-                            showOnlyHashTagInput();
-                          }),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                      ),
+                    )),
               ),
               const Padding(
                 padding: EdgeInsets.only(top: 24),
@@ -246,7 +261,11 @@ class _PublishPageState extends State<PublishPage> {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: TransitionAnimWidget(
-                    duration: 1000,
+                    onEnd: () {
+                      publishButtonAnimated = true;
+                    },
+                    animate: !publishButtonAnimated,
+                    duration: 1600,
                     startDirection: StartDirection.bottom,
                     child: Button(
                       title: 'Pubish',
@@ -274,6 +293,9 @@ class _PublishPageState extends State<PublishPage> {
         publishButtonInputVisible = VisibilityState.visible;
         hashTagInputVisible = VisibilityState.invisible;
         hashTagsVisible = VisibilityState.visible;
+
+        authorFocusNode.unfocus();
+        bodyFocusNode.unfocus();
       });
     } else {
       context.goBack();
