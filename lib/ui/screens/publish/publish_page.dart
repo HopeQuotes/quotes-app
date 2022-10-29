@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quotes/resources/colors.dart';
 import 'package:quotes/ui/core/widgets/add_chip_item.dart';
 import 'package:quotes/ui/core/widgets/chip_item.dart';
@@ -29,12 +30,16 @@ class _PublishPageState extends State<PublishPage> {
   var bodyInputVisible = VisibilityState.visible;
   var publishButtonInputVisible = VisibilityState.visible;
   var hashTagsVisible = VisibilityState.visible;
+  var switchButtonVisible = VisibilityState.visible;
   var quotesAnimated = false;
   var publishButtonAnimated = false;
+  var switchButtonAnimated = false;
 
   TextEditingController bodyController = TextEditingController();
 
   List<String> hashTags = ["quote", "happiness", "family", "hi"];
+
+  var publicQuote = true;
 
   @override
   void initState() {
@@ -53,6 +58,7 @@ class _PublishPageState extends State<PublishPage> {
           publishButtonInputVisible = VisibilityState.invisible;
           hashTagInputVisible = VisibilityState.invisible;
           hashTagsVisible = VisibilityState.invisible;
+          switchButtonVisible = VisibilityState.invisible;
         });
       }
     });
@@ -66,6 +72,7 @@ class _PublishPageState extends State<PublishPage> {
           publishButtonInputVisible = VisibilityState.invisible;
           hashTagInputVisible = VisibilityState.invisible;
           hashTagsVisible = VisibilityState.invisible;
+          switchButtonVisible = VisibilityState.invisible;
         }
       });
     });
@@ -79,6 +86,7 @@ class _PublishPageState extends State<PublishPage> {
       publishButtonInputVisible = VisibilityState.invisible;
       bodyInputVisible = VisibilityState.invisible;
       hashTagsVisible = VisibilityState.invisible;
+      switchButtonVisible = VisibilityState.invisible;
 
       hashTagInputVisible = VisibilityState.visible;
     });
@@ -253,8 +261,47 @@ class _PublishPageState extends State<PublishPage> {
                       ),
                     )),
               ),
+              Visibility(
+                visible: switchButtonVisible == VisibilityState.visible,
+                child: Row(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(left: 24),
+                      child: TransitionAnimWidget(
+                        animate: !switchButtonAnimated,
+                        duration: 1600,
+                        startDirection: StartDirection.start,
+                        child: Text(
+                          'Public',
+                          style: GoogleFonts.nunito(
+                              fontWeight: FontWeight.w600, fontSize: 16, color: Colors.black),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(left: 12),
+                      child: TransitionAnimWidget(
+                        onEnd: () {
+                          switchButtonAnimated = true;
+                        },
+                        animate: !switchButtonAnimated,
+                        duration: 1600,
+                        startDirection: StartDirection.start,
+                        child: CupertinoSwitch(
+                          value: publicQuote,
+                          onChanged: (value) {
+                            setState(() {
+                              publicQuote = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               const Padding(
-                padding: EdgeInsets.only(top: 24),
+                padding: EdgeInsets.only(top: 12),
               ),
               Visibility(
                 visible: publishButtonInputVisible == VisibilityState.visible,
@@ -293,6 +340,7 @@ class _PublishPageState extends State<PublishPage> {
         publishButtonInputVisible = VisibilityState.visible;
         hashTagInputVisible = VisibilityState.invisible;
         hashTagsVisible = VisibilityState.visible;
+        switchButtonVisible = VisibilityState.visible;
 
         authorFocusNode.unfocus();
         bodyFocusNode.unfocus();
