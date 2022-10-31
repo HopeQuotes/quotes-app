@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:motion_tab_bar/motiontabbar.dart';
+import 'package:quotes/resources/colors.dart';
 import 'package:quotes/ui/navigation/navigator.dart';
 import 'package:quotes/ui/screens/my_quotes/my_quotes_page.dart';
 import 'package:quotes/ui/screens/profile/profile_page.dart';
@@ -32,8 +33,8 @@ class _CoreState extends State<Core> {
       bottomNavigationBar: MotionTabBar(
         labels: const ["Home", "Quotes", "Publish", "My quotes", "Profile"],
         initialSelectedTab: "Home",
-        tabIconColor: Colors.indigo,
-        tabSelectedColor: Colors.indigo,
+        tabIconColor: AppColors.indigo,
+        tabSelectedColor: AppColors.indigo,
         onTabItemSelected: (int value) {
           setState(() {
             if (value == 2) {

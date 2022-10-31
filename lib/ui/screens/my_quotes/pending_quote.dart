@@ -5,16 +5,27 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:quotes/resources/colors.dart';
 import 'package:quotes/ui/core/widgets/elevated_container.dart';
 import 'package:quotes/ui/core/widgets/translate_anim_widget.dart';
+import 'package:quotes/ui/screens/my_quotes/pending_quote_state.dart';
 
-class QuoteItem extends StatelessWidget {
+class PendingQuote extends StatefulWidget {
   int index;
 
+  @override
+  State<PendingQuote> createState() => _PendingQuoteState();
+
+  PendingQuote({
+    super.key,
+    required this.index,
+  });
+}
+
+class _PendingQuoteState extends State<PendingQuote> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(16),
       child: Slidable(
-        key: ValueKey(index.toString()),
+        key: ValueKey(widget.index.toString()),
         endActionPane: ActionPane(
           extentRatio: 0.65,
           motion: const ScrollMotion(),
@@ -76,7 +87,7 @@ class QuoteItem extends StatelessWidget {
           ],
         ),
         child: TransitionAnimWidget(
-          duration: 700 + index,
+          duration: 700 + widget.index,
           child: ElevatedContainer(
             blur: 3,
             spread: 24,
@@ -106,7 +117,7 @@ class QuoteItem extends StatelessWidget {
                       child: Text(
                           style: GoogleFonts.nunito(fontWeight: FontWeight.w600, fontSize: 16),
                           textAlign: TextAlign.center,
-                          "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough."),
+                          "The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart."),
                     ),
                   ),
                   Container(
@@ -139,6 +150,42 @@ class QuoteItem extends StatelessWidget {
                       ),
                     ),
                   ),
+                  if (widget.index % 2 != 0)
+                    PendingQuoteState(
+                      backgroundColor: AppColors.green,
+                      stateTitle: 'Verified',
+                      toolTipMessage: "Your quote successfully verified !",
+                      endWidget: const Icon(
+                        Icons.info_outline_rounded,
+                        size: 24,
+                        color: Colors.white,
+                      ),
+                      index: widget.index,
+                    ),
+                  if (widget.index % 3 == 0)
+                    PendingQuoteState(
+                      backgroundColor: Colors.brown,
+                      stateTitle: 'Pending',
+                      toolTipMessage: "Pending, please wait",
+                      endWidget: const Icon(
+                        Icons.info_outline_rounded,
+                        size: 24,
+                        color: Colors.white,
+                      ),
+                      index: widget.index,
+                    ),
+                  if (widget.index % 2 == 0)
+                    PendingQuoteState(
+                      backgroundColor: AppColors.red,
+                      stateTitle: 'Rejected',
+                      toolTipMessage: "It should *NOT* be used in the following situations",
+                      endWidget: const Icon(
+                        Icons.info_outline_rounded,
+                        size: 24,
+                        color: Colors.white,
+                      ),
+                      index: widget.index,
+                    )
                 ],
               ),
             ),
@@ -147,8 +194,4 @@ class QuoteItem extends StatelessWidget {
       ),
     );
   }
-
-  QuoteItem({
-    required this.index,
-  });
 }

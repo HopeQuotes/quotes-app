@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -55,9 +54,7 @@ class DashBoard extends StatelessWidget {
                           child: Text(
                             "October 17",
                             style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 32,
-                                color: Colors.white),
+                                fontWeight: FontWeight.w600, fontSize: 32, color: Colors.white),
                           ),
                         ),
                       ),
@@ -73,14 +70,13 @@ class DashBoard extends StatelessWidget {
                                 color: Colors.black12.withOpacity(0.05),
                                 blurRadius: 24.0,
                                 spreadRadius: 24.0,
-                                offset:
-                                const Offset(0, 0), // shadow direction: bottom right
+                                offset: const Offset(0, 0), // shadow direction: bottom right
                               )
                             ],
                             border: Border.all(width: 2.5, color: Colors.white),
-                            borderRadius: const BorderRadius.all(Radius.circular(
-                                12.0) //                 <--- border radius here
-                            ),
+                            borderRadius: const BorderRadius.all(
+                                Radius.circular(12.0) //                 <--- border radius here
+                                ),
                           ),
                           child: const Icon(
                             Icons.person_outlined,
@@ -155,9 +151,7 @@ class DashBoard extends StatelessWidget {
                               Text(
                                 "25",
                                 style: GoogleFonts.nunito(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 22,
-                                    color: Colors.black),
+                                    fontWeight: FontWeight.w600, fontSize: 22, color: Colors.black),
                               ),
                               Text(
                                 "Quotes",
@@ -173,31 +167,30 @@ class DashBoard extends StatelessWidget {
                   Flexible(
                     flex: 1,
                     child: TransitionAnimWidget(
-                        startDirection: StartDirection.bottom,
-                        duration: 400,
-                        child: Container(
-                          width: double.infinity,
-                          alignment: Alignment.center,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "45",
-                                style: GoogleFonts.nunito(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 22,
-                                    color: Colors.black),
-                              ),
-                              Text(
-                                "Hashtags",
-                                style: GoogleFonts.nunito(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                    color: Colors.black.withAlpha(100)),
-                              )
-                            ],
-                          ),
-                        )),
+                      startDirection: StartDirection.bottom,
+                      duration: 400,
+                      child: Container(
+                        width: double.infinity,
+                        alignment: Alignment.center,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "45",
+                              style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.w600, fontSize: 22, color: Colors.black),
+                            ),
+                            Text(
+                              "Hashtags",
+                              style: GoogleFonts.nunito(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Colors.black.withAlpha(100)),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                   Flexible(
                     flex: 1,
@@ -213,9 +206,7 @@ class DashBoard extends StatelessWidget {
                               Text(
                                 "12",
                                 style: GoogleFonts.nunito(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 22,
-                                    color: Colors.black),
+                                    fontWeight: FontWeight.w600, fontSize: 22, color: Colors.black),
                               ),
                               Text(
                                 "Users",
@@ -236,5 +227,4 @@ class DashBoard extends StatelessWidget {
       ),
     );
   }
-
 }

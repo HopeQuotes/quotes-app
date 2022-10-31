@@ -17,6 +17,7 @@ class ElevatedContainer extends StatefulWidget {
   State<ElevatedContainer> createState() => _ElevatedContainerState();
 
   const ElevatedContainer({
+    super.key,
     required this.child,
     this.height = 128,
     this.width = double.infinity,
