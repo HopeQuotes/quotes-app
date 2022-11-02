@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quotes/ui/navigation/navigator.dart';
 import 'package:quotes/ui/screens/my_quotes/pending_quote.dart';
+import 'package:quotes/ui/screens/my_quotes/pending_quotes_filter_tabs.dart';
 import 'package:quotes/ui/screens/my_quotes/quote_filter_tabs.dart';
 
 import '../../../resources/colors.dart';
@@ -22,13 +24,38 @@ class PendingQuotesPage extends StatelessWidget {
             } else {
               return Column(
                 children: [
+                  TransitionAnimWidget(
+                    duration: 500,
+                    startDirection: StartDirection.start,
+                    child: AnimatedContainer(
+                      margin: const EdgeInsets.only(left: 6, top: 24),
+                      curve: Curves.fastOutSlowIn,
+                      height: 42,
+                      duration: const Duration(milliseconds: 100),
+                      child: Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              context.goBack();
+                            },
+                            icon: const Icon(
+                              Icons.keyboard_arrow_left_outlined,
+                              size: 42,
+                            ),
+                          ),
+                          const Spacer()
+                        ],
+                      ),
+                    ),
+                  ),
                   Row(
                     children: [
                       TransitionAnimWidget(
-                        duration: 400,
+                        duration: 600,
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 32),
                           child: const TitleText(
+                            paddingTop: 28,
                             text: 'Pending \nquotes',
                           ),
                         ),
@@ -36,6 +63,7 @@ class PendingQuotesPage extends StatelessWidget {
                       const Spacer(),
                     ],
                   ),
+                  PendingQuotesFilterTabs(),
                 ],
               );
             }
