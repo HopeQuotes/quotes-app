@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quotes/ui/core/widgets/elevated_container.dart';
 
 import '../../../resources/colors.dart';
@@ -77,16 +78,21 @@ class ProfilePage extends StatelessWidget {
                     child: ClipRRect(
                       child: Stack(
                         children: [
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: Container(
-                                margin: const EdgeInsets.all(24),
-                                child: const Icon(
-                                  size: 32,
-                                  Icons.stars,
-                                  color: Colors.white,
-                                ),
-                              )),
+                          Container(
+                            margin: EdgeInsets.all(12),
+                            padding: const EdgeInsets.all(6),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withAlpha(52),
+                              borderRadius: const BorderRadius.all(
+                                  Radius.circular(12.0) //                 <--- border radius here
+                                  ),
+                            ),
+                            child: const Icon(
+                              size: 32,
+                              Icons.favorite_border,
+                              color: Colors.white,
+                            ),
+                          ),
                           Align(
                             alignment: Alignment.center,
                             child: Container(
@@ -122,11 +128,81 @@ class ProfilePage extends StatelessWidget {
                   startDirection: StartDirection.bottom,
                   child: ElevatedContainer(
                     margin: EdgeInsets.all(12),
+                    gradient: LinearGradient(
+                        colors: [
+                          Colors.indigo.withOpacity(0.5),
+                          Colors.indigoAccent.withOpacity(0.8),
+                        ],
+                        begin: const FractionalOffset(0.0, 0.0),
+                        end: const FractionalOffset(0.9, 0.0),
+                        stops: const [0.0, 1.0],
+                        tileMode: TileMode.clamp),
                     height: 200,
-                    child: Container(),
+                    child: ClipRRect(
+                      child: Stack(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.all(12),
+                            padding: const EdgeInsets.all(6),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withAlpha(52),
+                              borderRadius: const BorderRadius.all(
+                                  Radius.circular(12.0) //                 <--- border radius here
+                                  ),
+                            ),
+                            child: const Icon(
+                              size: 32,
+                              Icons.notifications_none_rounded,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Stack(
+                              children: [
+                                Container(
+                                  margin: const EdgeInsets.only(left: 52),
+                                  child: const Icon(
+                                    Icons.favorite_border,
+                                    size: 200,
+                                    color: Colors.white12,
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 42,top: 6),
+                                  width: 20,
+                                  height: 20,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                      color: Colors.red, borderRadius: BorderRadius.circular(100)),
+                                  child: Text(
+                                    "6",
+                                    style: GoogleFonts.nunito(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 14,
+                                        color: Colors.white),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomLeft,
+                            child: Container(
+                              margin: const EdgeInsets.all(24),
+                              child: const Text(
+                                "Notifactions",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, color: Colors.white, fontSize: 22),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ],

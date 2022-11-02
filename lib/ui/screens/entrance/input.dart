@@ -70,9 +70,9 @@ class Input extends StatelessWidget {
     this.verticalPadding = 20,
     this.focusNode,
     this.controller,
-    this.blur = 4.0,
+    this.blur = 200.0,
     this.onSubmit,
-    this.spread = 4.0,
+    this.spread = 12.0,
     required this.margin,
   });
 }
