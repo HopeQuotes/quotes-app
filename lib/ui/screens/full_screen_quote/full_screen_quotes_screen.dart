@@ -142,9 +142,7 @@ class _FullScreenQuotesState extends State<FullScreenQuotesPage> {
                   padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
                     color: Colors.grey.withAlpha(50),
-                    borderRadius: const BorderRadius.all(
-                        Radius.circular(12.0) //                 <--- border radius here
-                        ),
+                    borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                   ),
                   child: GestureDetector(
                     child: Icon(
@@ -169,8 +167,8 @@ class _FullScreenQuotesState extends State<FullScreenQuotesPage> {
                   decoration: BoxDecoration(
                     color: Colors.grey.withAlpha(50),
                     borderRadius: const BorderRadius.all(
-                        Radius.circular(12.0) //                 <--- border radius here
-                        ),
+                      Radius.circular(12.0),
+                    ),
                   ),
                   child: const Icon(
                     Icons.upload_rounded,
