@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quotes/ui/screens/entrance/button.dart';
-import 'package:quotes/ui/screens/entrance/input.dart';
-import 'package:quotes/ui/screens/entrance/login_text.dart';
+import 'package:quotes/ui/screens/entrance/button_widget.dart';
+import 'package:quotes/ui/screens/entrance/input_widget.dart';
+import 'package:quotes/ui/screens/entrance/login_text_widget.dart';
 
 import '../../../core/core.dart';
 

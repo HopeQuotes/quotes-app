@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 List<TextSpan> highlightOccurrences(String source, String query) {

@@ -2,15 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quotes/resources/colors.dart';
-import 'package:quotes/ui/core/widgets/add_chip_item.dart';
-import 'package:quotes/ui/core/widgets/chip_item.dart';
+import 'package:quotes/ui/core/widgets/add_chip_item_widget.dart';
+import 'package:quotes/ui/core/widgets/chip_item_widget.dart';
 import 'package:quotes/ui/navigation/navigator.dart';
-import 'package:quotes/ui/screens/entrance/button.dart';
+import 'package:quotes/ui/screens/entrance/button_widget.dart';
 import 'package:quotes/utils/array.dart';
 
 import '../../core/widgets/translate_anim_widget.dart';
-import '../entrance/input.dart';
-import '../entrance/login_text.dart';
+import '../entrance/input_widget.dart';
+import '../entrance/login_text_widget.dart';
 
 enum VisibilityState { invisible, gone, visible }
 

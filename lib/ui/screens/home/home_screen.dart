@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quotes/resources/colors.dart';
-import 'package:quotes/ui/screens/home/quotes_list_item.dart';
+import 'package:quotes/ui/screens/home/quotes_list_item_widget.dart';
 
-import 'dashboard.dart';
+import 'dashboard_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

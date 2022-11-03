@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quotes/resources/colors.dart';
-import 'package:quotes/ui/core/widgets/elevated_container.dart';
+import 'package:quotes/ui/core/widgets/elevated_container_widget.dart';
 import 'package:quotes/ui/core/widgets/translate_anim_widget.dart';
 
 class QuoteItem extends StatelessWidget {

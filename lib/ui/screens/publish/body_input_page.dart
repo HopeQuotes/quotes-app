@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quotes/resources/colors.dart';
 
 import '../../core/widgets/translate_anim_widget.dart';
-import '../entrance/input.dart';
+import '../entrance/input_widget.dart';
 
 class BodyInputPage extends StatefulWidget {
   @override

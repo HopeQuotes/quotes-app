@@ -4,12 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:motion_tab_bar/motiontabbar.dart';
 import 'package:quotes/resources/colors.dart';
 import 'package:quotes/ui/navigation/navigator.dart';
-import 'package:quotes/ui/screens/my_quotes/my_quotes_page.dart';
-import 'package:quotes/ui/screens/profile/profile_page.dart';
+import 'package:quotes/ui/screens/my_quotes/my_quotes_screen.dart';
+import 'package:quotes/ui/screens/profile/profile_screen.dart';
 import 'package:quotes/ui/screens/publish/publish_page.dart';
 
-import '../screens/full_screen_quote/full_screen_quotes_page.dart';
-import '../screens/home/home_page.dart';
+import '../screens/full_screen_quote/full_screen_quotes_screen.dart';
+import '../screens/home/home_screen.dart';
 
 class Core extends StatefulWidget {
   @override

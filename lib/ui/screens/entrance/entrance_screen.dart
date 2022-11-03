@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quotes/resources/colors.dart';
-import 'package:quotes/ui/screens/entrance/login/login_page.dart';
-import 'package:quotes/ui/screens/entrance/register/register.dart';
+import 'package:quotes/ui/screens/entrance/login/login_screen.dart';
+import 'package:quotes/ui/screens/entrance/register/register_screen.dart';
 import 'package:quotes/utils/array.dart';
 
 class EntranceScreen extends StatefulWidget {
