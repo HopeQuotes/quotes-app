@@ -10,6 +10,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  motion_tab_bar: ^0.1.5
+  flutter_blurhash: ^0.7.0
+  google_fonts: ^3.0.1
+  flutter_otp_text_field: ^1.1.1
+  flutter_slidable: ^2.0.0
+  flutter_bloc: ^8.1.1
+  bloc: ^8.1.0
+
 
 dev_dependencies:
   flutter_test:

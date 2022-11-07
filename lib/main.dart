@@ -1,8 +1,8 @@
+import 'package:auth/entrance/entrance_screen.dart';
+import 'package:common/navigation/exp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:quotes/resources/colors.dart';
-import 'package:quotes/ui/screens/entrance/entrance_screen.dart';
+import 'package:quotes/core.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,8 +36,14 @@ class _QuotesState extends State<Quotes> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(child: EntranceScreen()),
+    return Scaffold(
+      body: SafeArea(child: EntranceScreen(
+        navigate: (module) {
+          if (module == Module.home) {
+            context.navigateTo(Core());
+          }
+        },
+      )),
     );
   }
 }

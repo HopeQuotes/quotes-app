@@ -1,4 +1,4 @@
-name: profile
+name: auth
 description: A new Flutter package project.
 version: 0.0.1
 homepage:
@@ -21,7 +21,6 @@ dependencies:
 
   common:
     path: ../common
-
 
 dev_dependencies:
   flutter_test:

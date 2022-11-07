@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.9.0"
+  auth:
+    dependency: "direct main"
+    description:
+      path: auth
+      relative: true
+    source: path
+    version: "0.0.1"
   bloc:
     dependency: "direct main"
     description:
@@ -43,6 +50,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.16.0"
+  common:
+    dependency: "direct main"
+    description:
+      path: common
+      relative: true
+    source: path
+    version: "0.0.1"
   crypto:
     dependency: transitive
     description:
@@ -123,6 +137,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  full_screen_quotes:
+    dependency: "direct main"
+    description:
+      path: full_screen_quotes
+      relative: true
+    source: path
+    version: "0.0.1"
   google_fonts:
     dependency: "direct main"
     description:
@@ -130,6 +151,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+  home:
+    dependency: "direct main"
+    description:
+      path: home
+      relative: true
+    source: path
+    version: "0.0.1"
   http:
     dependency: transitive
     description:
@@ -179,6 +207,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.5"
+  my_quotes:
+    dependency: "direct main"
+    description:
+      path: my_quotes
+      relative: true
+    source: path
+    version: "0.0.1"
   nested:
     dependency: transitive
     description:
@@ -263,6 +298,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.4"
+  profile:
+    dependency: "direct main"
+    description:
+      path: profile
+      relative: true
+    source: path
+    version: "0.0.1"
   provider:
     dependency: transitive
     description:
@@ -270,6 +312,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.0.4"
+  publish:
+    dependency: "direct main"
+    description:
+      path: publish
+      relative: true
+    source: path
+    version: "0.0.1"
   sky_engine:
     dependency: transitive
     description: flutter
