@@ -53,9 +53,11 @@ class AnimatedCrossFadeExampleState extends State<TransitionAnimWidget>
       curve: Curves.easeInOut,
     ));
     Future.delayed(Duration(milliseconds: widget.duration ~/ 2), () {
-      setState(() {
-        _visible = true;
-      });
+      if (mounted) {
+        setState(() {
+          _visible = true;
+        });
+      }
     });
   }
 
