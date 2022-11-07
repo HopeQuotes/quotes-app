@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quotes/ui/navigation/navigator.dart';
-import 'package:quotes/ui/screens/my_quotes/pending_quotes_page.dart';
+import 'package:quotes/ui/screens/my_quotes/pending_quotes_screen.dart';
 import 'package:quotes/ui/screens/my_quotes/quote_filter_tabs_widget.dart';
 
 import '../../../resources/colors.dart';
@@ -60,7 +60,7 @@ class MyQuotesPage extends StatelessWidget {
                             color: Colors.white,
                           ),
                           onTap: () {
-                            context.navigateTo(PendingQuotesPage());
+                            context.navigateTo(PendingQuotesScreen());
                           },
                         ),
                       ),

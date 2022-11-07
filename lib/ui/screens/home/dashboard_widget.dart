@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quotes/resources/colors.dart';
 import 'package:quotes/ui/core/widgets/elevated_container_widget.dart';
+import 'package:quotes/ui/core/widgets/scale_tap.dart';
 import 'package:quotes/ui/core/widgets/translate_anim_widget.dart';
 
 import '../../../utils/constants.dart';
@@ -62,26 +63,30 @@ class DashBoard extends StatelessWidget {
                       TransitionAnimWidget(
                         startDirection: StartDirection.end,
                         duration: 400,
-                        child: Container(
-                          margin: const EdgeInsets.only(right: 24, top: 24),
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black12.withOpacity(0.05),
-                                blurRadius: 24.0,
-                                spreadRadius: 24.0,
-                                offset: const Offset(0, 0), // shadow direction: bottom right
-                              )
-                            ],
-                            border: Border.all(width: 2.5, color: Colors.white),
-                            borderRadius: const BorderRadius.all(
-                                Radius.circular(12.0) //                 <--- border radius here
-                                ),
-                          ),
-                          child: const Icon(
-                            Icons.person_outlined,
-                            size: 32,
-                            color: Colors.white,
+                        child: ScaleTap(
+                          onPressed: () {},
+                          onLongPress: () {},
+                          child: Container(
+                            margin: const EdgeInsets.only(right: 24, top: 24),
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12.withOpacity(0.05),
+                                  blurRadius: 24.0,
+                                  spreadRadius: 24.0,
+                                  offset: const Offset(0, 0), // shadow direction: bottom right
+                                )
+                              ],
+                              border: Border.all(width: 2.5, color: Colors.white),
+                              borderRadius: const BorderRadius.all(
+                                  Radius.circular(12.0) //                 <--- border radius here
+                                  ),
+                            ),
+                            child: const Icon(
+                              Icons.person_outlined,
+                              size: 32,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),

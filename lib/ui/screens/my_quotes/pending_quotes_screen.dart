@@ -9,7 +9,7 @@ import '../../core/widgets/translate_anim_widget.dart';
 import '../entrance/login_text_widget.dart';
 import '../home/quotes_list_item_widget.dart';
 
-class PendingQuotesPage extends StatelessWidget {
+class PendingQuotesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(

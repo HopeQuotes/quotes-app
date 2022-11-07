@@ -12,6 +12,7 @@ class ElevatedContainer extends StatefulWidget {
   final double? spread;
   final double? blur;
   final double radius;
+  final Function? onClick;
 
   @override
   State<ElevatedContainer> createState() => _ElevatedContainerState();
@@ -26,6 +27,7 @@ class ElevatedContainer extends StatefulWidget {
     this.blur = 24.0,
     this.radius = 24,
     this.gradient,
+    this.onClick,
     this.margin = EdgeInsets.zero,
   });
 }
@@ -59,7 +61,9 @@ class _ElevatedContainerState extends State<ElevatedContainer> {
               color: widget.color,
               borderRadius: BorderRadius.circular(widget.radius),
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  widget.onClick?.call();
+                },
                 borderRadius: BorderRadius.circular(widget.radius),
                 child: Container(
                   decoration: BoxDecoration(
