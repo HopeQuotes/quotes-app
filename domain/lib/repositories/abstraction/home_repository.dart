@@ -1,5 +1,5 @@
 
 
-class HomeRepository {
+abstract class HomeRepository {
 
 }
