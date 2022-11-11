@@ -1,7 +1,12 @@
 # Quotes-App
 ![CI](https://github.com/ashishrawat2911/flutter_commerce/workflows/Ecomm/badge.svg)
-[![GitHub stars](https://img.shields.io/github/stars/ashishrawat2911/flutter_commerce?style=social)](https://github.com/ashishrawat2911/flutter_commerce) ![GitHub forks](https://img.shields.io/github/forks/ashishrawat2911/flutter_commerce?style=social)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/ashishrawat2911/flutter_commerce) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/ashishrawat2911/flutter_commerce) ![GitHub last commit](https://img.shields.io/github/last-commit/ashishrawat2911/flutter_commerce)  ![GitHub issues](https://img.shields.io/github/issues-raw/ashishrawat2911/flutter_commerce) [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ashishrawat2911/flutter_commerce)
+[![GitHub stars](https://img.shields.io/github/stars/HopeQuotes/Quotes-app-?style=social)](https://github.com/HopeQuotes/Quotes-app-) 
+![GitHub forks](https://img.shields.io/github/forks/HopeQuotes/Quotes-app-?style=social)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/HopeQuotes/Quotes-app-)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/HopeQuotes/Quotes-app-) 
+![GitHub last commit](https://img.shields.io/github/last-commit/HopeQuotes/Quotes-app-)
+![GitHub issues](https://img.shields.io/github/issues-raw/HopeQuotes/Quotes-app-) 
+[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/HopeQuotes/Quotes-app-)
 
 # Screenshots
 
@@ -23,9 +28,5 @@
 
 ## Created & Maintained By
 
-([Twitter](https://www.twitter.com/xaldarof))  ([Insta](https://www.instagram.com/xaldarof)) ([Dev.to](https://dev.to/xaldarof))
+([Twitter](https://www.twitter.com/xaldarof))  ([Insta](https://www.instagram.com/xaldarof))
 ![Twitter Follow](https://img.shields.io/twitter/follow/xaldarof?style=social)
-
-> If you found this project helpful or you learned something from the source code and want to thank me, consider buying me a cup of :coffee:
->
-> * [PayPal](https://paypal.me/ashishrawat2911/)
