@@ -6,7 +6,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/HopeQuotes/Quotes-app-)
 ![GitHub issues](https://img.shields.io/github/issues-raw/HopeQuotes/Quotes-app-) 
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/HopeQuotes/Quotes-app-)
-[![Backend engeneer](https://img.shields.io/badge/Amazon%20DynamoDB-4053D6?style=for-the-badge&logo=Amazon%20DynamoDB&logoColor=white)](https://github.com/javlonrahimov)
+[![Backend engeneer](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)](https://github.com/javlonrahimov)
 
 
 # Screenshots
