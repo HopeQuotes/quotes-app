@@ -1,5 +1,4 @@
 # Quotes-App
-![CI](https://github.com/ashishrawat2911/flutter_commerce/workflows/Ecomm/badge.svg)
 [![GitHub stars](https://img.shields.io/github/stars/HopeQuotes/Quotes-app-?style=social)](https://github.com/HopeQuotes/Quotes-app-) 
 ![GitHub forks](https://img.shields.io/github/forks/HopeQuotes/Quotes-app-?style=social)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/HopeQuotes/Quotes-app-)
