@@ -1,13 +1,7 @@
-# Flutter-Commerce
+# Quotes-App
 ![CI](https://github.com/ashishrawat2911/flutter_commerce/workflows/Ecomm/badge.svg)
 [![GitHub stars](https://img.shields.io/github/stars/ashishrawat2911/flutter_commerce?style=social)](https://github.com/ashishrawat2911/flutter_commerce) ![GitHub forks](https://img.shields.io/github/forks/ashishrawat2911/flutter_commerce?style=social)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/ashishrawat2911/flutter_commerce) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/ashishrawat2911/flutter_commerce) ![GitHub last commit](https://img.shields.io/github/last-commit/ashishrawat2911/flutter_commerce)  ![GitHub issues](https://img.shields.io/github/issues-raw/ashishrawat2911/flutter_commerce) [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ashishrawat2911/flutter_commerce)
-
-An Ecommerce application built in Flutter using Firebase.
-
-## Getting started
-* Project setup instructions are given at [Wiki](https://github.com/ashishrawat2911/flutter_commerce/wiki/Gettings-Started) section.
-
 
 # Screenshots
 
@@ -29,8 +23,8 @@ An Ecommerce application built in Flutter using Firebase.
 
 ## Created & Maintained By
 
-[Ashish Rawat](https://ashishrawat.dev) ([Twitter](https://www.twitter.com/ashishrawat2911))  ([Insta](https://www.instagram.com/ashishrawat2911)) ([Dev.to](https://dev.to/ashishrawat2911))
-![Twitter Follow](https://img.shields.io/twitter/follow/ashishrawat2911?style=social)
+([Twitter](https://www.twitter.com/xaldarof))  ([Insta](https://www.instagram.com/xaldarof)) ([Dev.to](https://dev.to/xaldarof))
+![Twitter Follow](https://img.shields.io/twitter/follow/xaldarof?style=social)
 
 > If you found this project helpful or you learned something from the source code and want to thank me, consider buying me a cup of :coffee:
 >
