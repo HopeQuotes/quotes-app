@@ -6,6 +6,8 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/HopeQuotes/Quotes-app-)
 ![GitHub issues](https://img.shields.io/github/issues-raw/HopeQuotes/Quotes-app-) 
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/HopeQuotes/Quotes-app-)
+[![Backend engeneer](https://github.com/javlonrahimov)
+
 
 # Screenshots
 
