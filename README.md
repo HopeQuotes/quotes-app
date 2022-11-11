@@ -8,10 +8,10 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/HopeQuotes/Quotes-app-)
 
 
-:octocat:: **Backend developer.**
+:octocat: **Backend developer.**
  [![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)](https://github.com/javlonrahimov)
 
-👨‍🚀:: **Mobile application developer.**
+👨‍🚀: **Mobile application developer.**
 [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](https://github.com/xaldarof)
 
 
