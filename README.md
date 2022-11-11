@@ -14,6 +14,9 @@
 **Mobile application developer.**
 [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](https://github.com/xaldarof)
 
+@octocat :+1: This PR looks great - it's ready to merge! :shipit:
+
+
 # Screenshots
 
 |                                                Splash Screen                                                |                                                 Login Page                                                 |                                                 OTP Page                                                 |                                                Home Page                                                |
