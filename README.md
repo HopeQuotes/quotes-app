@@ -6,7 +6,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/HopeQuotes/Quotes-app-)
 ![GitHub issues](https://img.shields.io/github/issues-raw/HopeQuotes/Quotes-app-) 
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/HopeQuotes/Quotes-app-)
-[![Backend engeneer](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/javlonrahimov)
+[![Backend engeneer](https://icon-icons.com/downloadimage.php?id=168155&root=2699/SVG/&file=golang_gopher_src_logo_icon_168155.svg)](https://github.com/javlonrahimov)
 
 
 # Screenshots
