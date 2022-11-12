@@ -28,7 +28,7 @@
 - Animations
 - Custom widgets
 - BlurHash
-- Dismissible
+- Custom dismissible widgets
 - Paging
 - Caching
 
