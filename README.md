@@ -1,4 +1,4 @@
-# Quotes-App
+# Quotes-app
 [![GitHub stars](https://img.shields.io/github/stars/HopeQuotes/Quotes-app-?style=social)](https://github.com/HopeQuotes/Quotes-app-) 
 ![GitHub forks](https://img.shields.io/github/forks/HopeQuotes/Quotes-app-?style=social)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/HopeQuotes/Quotes-app-)
@@ -21,15 +21,15 @@
 
 |                                   Splash Screen                                    |                                     Login Page                                     |                                      OTP Page                                      |                                     Home Page                                      |
 |:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|
-| ![](https://raw.githubusercontent.com/xaldarof/Quotes-App-/main/screenshots/1.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-App-/main/screenshots/2.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-App-/main/screenshots/3.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-App-/main/screenshots/4.jpg) |
+| ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/1.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/2.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/3.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/4.jpg) |
 
 |                                   Search Screen                                    |                                    Cart Screen                                     |                                   Address Screen                                   |                                 Add Address Screen                                 |
 |:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|
-| ![](https://raw.githubusercontent.com/xaldarof/Quotes-App-/main/screenshots/5.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-App-/main/screenshots/6.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-App-/main/screenshots/7.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-App-/main/screenshots/8.jpg) |
+| ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/5.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/6.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/7.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/8.jpg) |
 
 |                                         Account Screen                                          |                                         Edit Details Screen                                          |                                         Orders Screen                                          |                                         Payment Screen                                          |
 |:-----------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------:|
-| ![](https://raw.githubusercontent.com/xaldarof/Quotes-App-/main/screenshots/account_screen.png) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-App-/main/screenshots/edit_details_screen.png) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-App-/main/screenshots/orders_screen.png) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-App-/main/screenshots/payment_screen.png) |
+| ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/account_screen.png) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/edit_details_screen.png) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/orders_screen.png) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/payment_screen.png) |
 
 ## Created & Maintained By
 
