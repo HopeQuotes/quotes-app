@@ -8,6 +8,7 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/HopeQuotes/Quotes-app-)
 
 
+
 :octocat: **Backend developer.**
  [![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)](https://github.com/javlonrahimov)
 
@@ -21,7 +22,7 @@
 
 |                             Splash Screen                              |                                     Login Page                                     |                                      OTP Page                                      |                                     Home Page                                      |
 |:----------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|
-| ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screens/1.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/2.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/3.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/4.jpg) |
+| ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/1.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/2.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/3.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/4.jpg) |
 
 |                                   Search Screen                                    |                                    Cart Screen                                     |                                   Address Screen                                   |                                 Add Address Screen                                 |
 |:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|
