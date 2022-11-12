@@ -20,7 +20,7 @@
 
 # Screenshots
 
-![alt text](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/group1.jpg)
+![alt text](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/group1.png)
 
 
 ## Created & Maintained By
