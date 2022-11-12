@@ -20,10 +20,14 @@
 
 # Screenshots
 
-|                               Splash Screen                                |                                 Login Page                                 |                                  OTP Page                                  |                                 Home Page                                  |
+|                                Login screen                                |                              Register screen                               |                               Quotes screen                                |                               Assess screen                                |
 |:--------------------------------------------------------------------------:|:--------------------------------------------------------------------------:|:--------------------------------------------------------------------------:|:--------------------------------------------------------------------------:|
 | ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/1.jpg) | ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/2.png) | ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/3.jpg) | ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/4.jpg) |
-Full screen quotes
+
+|                                Login screen                                |                              Register screen                               |                               Quotes screen                                |                               Assess screen                                |
+|:--------------------------------------------------------------------------:|:--------------------------------------------------------------------------:|:--------------------------------------------------------------------------:|:--------------------------------------------------------------------------:|
+| ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/1.jpg) | ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/2.png) | ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/3.jpg) | ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/4.jpg) |
+                                    
 | ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/5.jpg)  ![]([https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/6.jpg](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/7.jpg)) | ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/8.jpg) 
 
 
