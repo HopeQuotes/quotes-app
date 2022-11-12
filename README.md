@@ -23,7 +23,7 @@
 ![alt text](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/group_rounded1.png)
 
 
-![alt text](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/group1.png)
+![alt text](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/group_rounded2.png)
 
 
 ## Created & Maintained By
