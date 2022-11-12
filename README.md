@@ -15,14 +15,17 @@
 👨‍🚀 **Mobile application developer.**
 [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](https://github.com/xaldarof)
 
-
+[Download application](http://play.google.com/store/apps/details?id=com.example.quotes)
 
 
 # Screenshots
 
 |                             Splash Screen                              |                                     Login Page                                     |                                      OTP Page                                      |                                     Home Page                                      |
 |:----------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|
-| ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/1.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/2.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/3.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/4.jpg) |
+<<<<<<< HEAD
+| ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/1.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/2.jpg) | ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/2.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/4.jpg) |
+=======
+| ![](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/1.jpg) | ![]([https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/2.jpg](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/1.jpg)) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/3.jpg) | ![](https://raw.githubusercontent.com/xaldarof/Quotes-app-/main/screenshots/4.jpg) |
 
 |                                   Search Screen                                    |                                    Cart Screen                                     |                                   Address Screen                                   |                                 Add Address Screen                                 |
 |:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|
