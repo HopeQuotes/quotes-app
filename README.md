@@ -7,6 +7,16 @@
 ![GitHub issues](https://img.shields.io/github/issues-raw/HopeQuotes/Quotes-app-) 
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/HopeQuotes/Quotes-app-)
 
+
+:octocat: **Backend developer.**
+ [![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)](https://github.com/javlonrahimov)
+
+👨‍🚀 **Mobile application developer.**
+[![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](https://github.com/xaldarof)
+
+
+
+
 # Screenshots
 
 |                                                Splash Screen                                                |                                                 Login Page                                                 |                                                 OTP Page                                                 |                                                Home Page                                                |
@@ -29,3 +39,4 @@
 
 ([Twitter](https://www.twitter.com/xaldarof))  ([Insta](https://www.instagram.com/xaldarof))
 ![Twitter Follow](https://img.shields.io/twitter/follow/xaldarof?style=social)
+
