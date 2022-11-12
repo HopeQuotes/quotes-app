@@ -44,21 +44,22 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
-  auth:
-    path: auth
-  home:
-    path: home
-  full_screen_quotes:
-    path: full_screen_quotes
-  publish:
-    path: publish
-  my_quotes:
-    path: my_quotes
-  profile:
-    path: profile
-
   common:
     path: common
+
+  auth:
+    path: features/auth
+  home:
+    path: features/home
+  full_screen_quotes:
+    path: features/full_screen_quotes
+  publish:
+    path: features/publish
+  my_quotes:
+    path: features/my_quotes
+  profile:
+    path: features/profile
+
 
 dev_dependencies:
   flutter_test:

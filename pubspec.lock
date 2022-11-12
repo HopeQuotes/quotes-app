@@ -11,7 +11,7 @@ packages:
   auth:
     dependency: "direct main"
     description:
-      path: auth
+      path: "features/auth"
       relative: true
     source: path
     version: "0.0.1"
@@ -140,7 +140,7 @@ packages:
   full_screen_quotes:
     dependency: "direct main"
     description:
-      path: full_screen_quotes
+      path: "features/full_screen_quotes"
       relative: true
     source: path
     version: "0.0.1"
@@ -154,7 +154,7 @@ packages:
   home:
     dependency: "direct main"
     description:
-      path: home
+      path: "features/home"
       relative: true
     source: path
     version: "0.0.1"
@@ -210,7 +210,7 @@ packages:
   my_quotes:
     dependency: "direct main"
     description:
-      path: my_quotes
+      path: "features/my_quotes"
       relative: true
     source: path
     version: "0.0.1"
@@ -301,7 +301,7 @@ packages:
   profile:
     dependency: "direct main"
     description:
-      path: profile
+      path: "features/profile"
       relative: true
     source: path
     version: "0.0.1"
@@ -315,7 +315,7 @@ packages:
   publish:
     dependency: "direct main"
     description:
-      path: publish
+      path: "features/publish"
       relative: true
     source: path
     version: "0.0.1"

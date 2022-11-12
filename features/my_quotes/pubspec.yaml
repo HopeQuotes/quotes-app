@@ -1,4 +1,4 @@
-name: auth
+name: my_quotes
 description: A new Flutter package project.
 version: 0.0.1
 homepage:
@@ -20,7 +20,7 @@ dependencies:
   bloc: ^8.1.0
 
   common:
-    path: ../common
+    path: ../../common
 
 dev_dependencies:
   flutter_test:

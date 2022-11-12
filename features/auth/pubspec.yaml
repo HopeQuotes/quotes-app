@@ -1,4 +1,4 @@
-name: home
+name: auth
 description: A new Flutter package project.
 version: 0.0.1
 homepage:
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   motion_tab_bar: ^0.1.5
   flutter_blurhash: ^0.7.0
   google_fonts: ^3.0.1
@@ -19,8 +20,7 @@ dependencies:
   bloc: ^8.1.0
 
   common:
-    path: ../common
-
+    path: ../../common
 
 dev_dependencies:
   flutter_test:

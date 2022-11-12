@@ -1,4 +1,4 @@
-name: full_screen_quotes
+name: home
 description: A new Flutter package project.
 version: 0.0.1
 homepage:
@@ -10,9 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  common:
-    path: ../common
-
   motion_tab_bar: ^0.1.5
   flutter_blurhash: ^0.7.0
   google_fonts: ^3.0.1
@@ -20,6 +17,10 @@ dependencies:
   flutter_slidable: ^2.0.0
   flutter_bloc: ^8.1.1
   bloc: ^8.1.0
+
+  common:
+    path: ../../common
+
 
 dev_dependencies:
   flutter_test:

@@ -19,7 +19,7 @@ dependencies:
   bloc: ^8.1.0
 
   common:
-    path: ../common
+    path: ../../common
 
 
 dev_dependencies:

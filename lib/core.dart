@@ -2,14 +2,13 @@ import 'package:common/navigation/exp.dart';
 import 'package:common/resources/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:full_screen_quotes/full_screen_quote/exp.dart';
+import 'package:full_screen_quotes/full_screen_quote/full_screen_quotes_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:home/home/exp.dart';
+import 'package:home/home/home_screen.dart';
 import 'package:motion_tab_bar/motiontabbar.dart';
-import 'package:my_quotes/my_quotes/exp.dart';
+import 'package:my_quotes/my_quotes/my_quotes_screen.dart';
 import 'package:profile/profile_screen.dart';
 import 'package:publish/publish_screen.dart';
-
 class Core extends StatefulWidget {
   @override
   State<Core> createState() => _CoreState();
