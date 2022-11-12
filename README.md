@@ -20,6 +20,9 @@
 
 # Screenshots
 
+![alt text](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/group2.png)
+
+
 ![alt text](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/group1.png)
 
 
