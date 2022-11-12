@@ -31,6 +31,9 @@
 - Custom dismissible widgets
 - Paging
 - Caching
+- Authorization
+- Push notifications
+- Firebase crashlytics
 
 # Screenshots
 
