@@ -18,6 +18,20 @@
 [Download application](http://play.google.com/store/apps/details?id=com.example.quotes)
 
 
+- Bloc
+- Dio
+- Json parsing
+- FCM
+- Hive
+- Unit testing
+- Test driven development
+- Animations
+- Custom widgets
+- BlurHash
+- Dismissible
+- Paging
+- Caching
+
 # Screenshots
 
 ![alt text](https://github.com/HopeQuotes/Quotes-app-/blob/main/screenshots/group_rounded1.png)
