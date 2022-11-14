@@ -32,7 +32,6 @@
 - Authorization
 - Push notifications
 - Firebase crashlytics
-- Firebase crashlytics
 - Cache Synchronization
 
 # Screenshots
