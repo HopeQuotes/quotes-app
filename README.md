@@ -21,6 +21,7 @@
 - Json parsing
 - FCM
 - Hive
+- Sqllite
 - Unit testing
 - Test driven development
 - Animations
