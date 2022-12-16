@@ -9,7 +9,7 @@ class ChipItemAdd extends StatefulWidget {
   @override
   State<ChipItemAdd> createState() => _ChipItemState();
 
-  ChipItemAdd({
+  const ChipItemAdd({
     super.key,
     required this.onClick,
   });
