@@ -1,8 +1,12 @@
 import 'dart:convert';
 
 import 'package:data/api/dio.dart';
+import 'package:data/cache/keys.dart';
 import 'package:domain/models/base/base_response.dart';
+import 'package:domain/models/cache/user_cache.dart';
+import 'package:domain/models/mappers/ui/user_mapper.dart';
 import 'package:domain/models/state/domain_result.dart';
+import 'package:domain/models/ui/user.dart';
 import 'package:domain/repositories/abstraction/quotes_repository.dart';
 import 'package:domain/models/response/quote_response.dart';
 import 'package:domain/models/response/quote_states_response.dart';
@@ -10,7 +14,9 @@ import 'package:domain/models/request/set_quote_state_request.dart';
 import 'package:domain/models/ui/quote.dart';
 import 'package:domain/models/mappers/ui/quote_mapper.dart';
 
-class QuotesRepositoryImpl extends QuotesRepository {
+import '../../cache/box.dart';
+
+class HomeRepositoryImpl extends HomeRepository {
   final DioClient _client;
 
   @override
@@ -28,7 +34,7 @@ class QuotesRepositoryImpl extends QuotesRepository {
     }
   }
 
-  QuotesRepositoryImpl({
+  HomeRepositoryImpl({
     required DioClient client,
   }) : _client = client;
 
@@ -61,5 +67,12 @@ class QuotesRepositoryImpl extends QuotesRepository {
     } catch (e) {
       yield DomainError(message: 'Something went wrong...');
     }
+  }
+
+  @override
+  Future<User?> getProfile() async {
+    var userBox =
+        (await getBox<UserCache>(HiveKeys.profile)).get(HiveKeys.profile);
+    return userBox?.toUi();
   }
 }

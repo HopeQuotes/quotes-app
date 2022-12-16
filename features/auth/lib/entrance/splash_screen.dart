@@ -1,8 +1,12 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:auth/entrance/entrance_screen.dart';
 import 'package:common/navigation/exp.dart';
+import 'package:common/resources/colors.dart';
 import 'package:common/utils/colors.dart';
+import 'package:common/utils/fonts.dart';
 import 'package:di/data_module_injector.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'bloc/splash_bloc.dart';
@@ -16,7 +20,18 @@ class SplashScreen extends StatelessWidget {
       create: (_) => SplashBloc(injector())..add(CheckUserStatus()),
       child: BlocConsumer<SplashBloc, SplashState>(builder: (context, state) {
         return Container(
-          color: primaryColor,
+          color: AppColors.indigo.withAlpha(180),
+          child: Center(
+            child: AnimatedTextKit(
+              isRepeatingAnimation: false,
+              animatedTexts: [
+                TyperAnimatedText('Quotes app',
+                    textStyle: getTextStyle(size: 20, color: Colors.white)),
+                TyperAnimatedText('Share your minds...',
+                    textStyle: getTextStyle(color: Colors.white, size: 20)),
+              ],
+            ),
+          ),
         );
       }, listener: (context, state) {
         if (state.status == SplashStatus.authorized) {

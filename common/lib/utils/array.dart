@@ -42,3 +42,9 @@ extension ArrayExt<T> on List<T> {
     }
   }
 }
+
+extension ArrayExtNullable<T> on List<T>? {
+  bool get nullOrEmpty {
+    return (this?.isEmpty == true) || this == null;
+  }
+}

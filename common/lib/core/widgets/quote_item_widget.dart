@@ -2,13 +2,15 @@ import 'package:common/core/widgets/elevated_container_widget.dart';
 import 'package:common/core/widgets/scale_tap.dart';
 import 'package:common/core/widgets/translate_anim_widget.dart';
 import 'package:common/resources/colors.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:common/utils/fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuoteItem extends StatelessWidget {
-  int index;
+  final String author;
+  final String text;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +84,7 @@ class QuoteItem extends StatelessWidget {
             child: ElevatedContainer(
               blur: 3,
               spread: 24,
-              height: 232,
+              height: 252,
               child: ClipRRect(
                 child: Stack(
                   children: [
@@ -91,13 +93,12 @@ class QuoteItem extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(12),
                         child: Text(
-                            style: GoogleFonts.nunito(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                                fontStyle: FontStyle.italic,
-                                color: Colors.black26),
+                            style: getTextStyle(
+                                color: Colors.black45,
+                                size: 16,
+                                weight: FontWeight.w500),
                             textAlign: TextAlign.center,
-                            "- Oprah Winfrey -"),
+                            "- $author -"),
                       ),
                     ),
                     Align(
@@ -106,9 +107,10 @@ class QuoteItem extends StatelessWidget {
                         margin: const EdgeInsets.all(24),
                         alignment: Alignment.center,
                         child: Text(
-                            style: GoogleFonts.nunito(fontWeight: FontWeight.w600, fontSize: 16),
+                            maxLines: 5,
+                            style: getTextStyle(color: Colors.black, size: 16),
                             textAlign: TextAlign.center,
-                            "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough."),
+                            text),
                       ),
                     ),
                     Container(
@@ -133,7 +135,8 @@ class QuoteItem extends StatelessWidget {
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: Container(
-                        margin: const EdgeInsets.only(left: 24, top: 80, bottom: 32),
+                        margin: const EdgeInsets.only(
+                            left: 24, top: 80, bottom: 32),
                         child: Icon(
                           Icons.rectangle_outlined,
                           size: 62,
@@ -151,7 +154,10 @@ class QuoteItem extends StatelessWidget {
     );
   }
 
-  QuoteItem({
+  const QuoteItem({
+    super.key,
+    required this.author,
+    required this.text,
     required this.index,
   });
 }

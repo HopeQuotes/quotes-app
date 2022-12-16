@@ -1,6 +1,9 @@
+import 'package:common/utils/array.dart';
 import 'package:flutter/material.dart';
-import 'package:home/home/quotes_list_item_widget.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:home/home/bloc/home_bloc.dart';
+import 'package:common/core/widgets/quote_item_widget.dart';
+import 'package:di/data_module_injector.dart';
 import 'dashboard_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -8,16 +11,39 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: 100,
-      itemBuilder: (BuildContext context, int index) {
-        if (index > 0) {
-          return QuoteItem(index: index);
-        } else {
-          return DashBoard();
-        }
-      },
+    return BlocProvider(
+      create: (_) => HomeBloc(injector())
+        ..add(GetProfile())
+        ..add(LoadQuotes()),
+      child: BlocConsumer<HomeBloc, HomeState>(
+        builder: (context, state) {
+          final bloc = context.read<HomeBloc>();
+          return ListView.builder(
+            itemCount: (state.quotes?.length ?? 0) + 1,
+            controller: bloc.quotesScrollController,
+            itemBuilder: (BuildContext context, int index) {
+              if (index > 0) {
+                var quote = state.quotes![index - 1];
+                return state.quotes.nullOrEmpty == true
+                    ? Container()
+                    : QuoteItem(
+                        index: index,
+                        author: quote.author,
+                        text: quote.text,
+                      );
+              } else {
+                return BlocProvider.value(
+                  value: bloc,
+                  child: const DashBoard(),
+                );
+              }
+            },
+          );
+        },
+        listener: (context, state) {
+          //
+        },
+      ),
     );
   }
 }

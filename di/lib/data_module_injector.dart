@@ -25,6 +25,6 @@ void initDomainModuleDependencies() {
       CreateQuoteRepositoryImpl(client: injector()));
   injector.registerSingleton<HashtagRepository>(
       HashtagRepositoryImpl(client: injector()));
-  injector.registerSingleton<QuotesRepository>(
-      QuotesRepositoryImpl(client: injector()));
+  injector.registerSingleton<HomeRepository>(
+      HomeRepositoryImpl(client: injector()));
 }

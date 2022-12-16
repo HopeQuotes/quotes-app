@@ -7,6 +7,7 @@ import 'package:domain/repositories/abstraction/entrance_repository.dart';
 class EntranceRepositoryImpl extends EntranceRepository {
   @override
   Stream<DomainResult> getUserStatus() async* {
+    await Future.delayed(const Duration(seconds: 5));
     var box = await (getBox<UserCache>(HiveKeys.profile));
     if (box.get(HiveKeys.profile) != null) {
       yield DomainSuccess();
