@@ -46,6 +46,10 @@ dependencies:
 
   common:
     path: common
+  di:
+    path: di
+  hive: ^2.2.3
+  path_provider: ^2.0.11
 
   auth:
     path: features/auth

@@ -12,6 +12,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   final AuthRepository _repository;
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
 
   RegisterBloc(this._repository) : super(const RegisterState()) {
     on<Register>(_register);
@@ -19,7 +20,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
   Future<void> _register(Register event, Emitter emitter) async {
     return emitter.forEach(
-        _repository.login(emailController.text, passwordController.text),
+        _repository.register(
+            emailController.text, passwordController.text, nameController.text),
         onData: (data) {
       if (data is DomainLoading) {
         return state.copyWith(registerStatus: RegisterStatus.loading);

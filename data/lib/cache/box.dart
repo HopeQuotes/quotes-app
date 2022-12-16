@@ -1,3 +1,4 @@
+import 'package:domain/models/cache/user_cache.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -9,6 +10,6 @@ Future<Box<T>> getBox<T>(String name) async {
   }
 }
 
-Future<void> initBox() async {
-  Hive.init("${(await getApplicationDocumentsDirectory()).path}/boxes");
+Future<void> registerAdapters() async {
+  Hive.registerAdapter<UserCache>(UserCacheAdapter());
 }

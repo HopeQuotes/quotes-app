@@ -1,10 +1,18 @@
 import 'package:auth/entrance/entrance_screen.dart';
+import 'package:auth/entrance/verify/verify_screen.dart';
 import 'package:common/navigation/exp.dart';
+import 'package:di/data_module_injector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:quotes/core.dart';
+import 'package:auth/entrance/splash_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Hive.init("${(await getApplicationDocumentsDirectory()).path}/boxes");
+  initDomainModuleDependencies();
   runApp(const MyApp());
 }
 
@@ -13,9 +21,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      routes: {
+        '/main': (context) => Core(),
+      },
       debugShowCheckedModeBanner: false,
-      home: Quotes(),
+      home: const Quotes(),
     );
   }
 }
@@ -37,13 +48,7 @@ class _QuotesState extends State<Quotes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: EntranceScreen(
-        navigate: (module) {
-          if (module == Module.home) {
-            context.navigateTo(Core());
-          }
-        },
-      )),
+      body: SafeArea(child: SplashScreen()),
     );
   }
 }

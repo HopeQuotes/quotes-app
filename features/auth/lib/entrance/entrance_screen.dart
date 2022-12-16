@@ -8,14 +8,11 @@ import 'package:flutter/material.dart';
 import 'login/login_screen.dart';
 
 class EntranceScreen extends StatefulWidget {
-  final Function(Module) navigate;
-
-
   @override
   State<EntranceScreen> createState() => _EntranceScreenState();
 
-  const EntranceScreen({super.key,
-    required this.navigate,
+  const EntranceScreen({
+    super.key,
   });
 }
 
@@ -38,7 +35,7 @@ class _EntranceScreenState extends State<EntranceScreen> {
         children: ["", ""].mapIndexed(
           (index, e) {
             if (index == 0) {
-              return LoginScreen(navigate: widget.navigate);
+              return LoginScreen();
             }
             if (index == 1) {
               return RegisterScreen();
