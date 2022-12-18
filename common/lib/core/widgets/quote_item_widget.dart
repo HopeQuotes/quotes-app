@@ -2,6 +2,7 @@ import 'package:common/core/widgets/elevated_container_widget.dart';
 import 'package:common/core/widgets/scale_tap.dart';
 import 'package:common/core/widgets/translate_anim_widget.dart';
 import 'package:common/resources/colors.dart';
+import 'package:common/utils/exp.dart';
 import 'package:common/utils/fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -116,7 +117,7 @@ class QuoteItem extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.only(right: 1000, bottom: 1300),
                       child: Icon(
-                        Icons.circle_outlined,
+                        getRandomIcon(),
                         size: 125,
                         color: Colors.indigo.withAlpha(6),
                       ),
@@ -126,7 +127,7 @@ class QuoteItem extends StatelessWidget {
                       child: Container(
                         margin: const EdgeInsets.only(left: 200, top: 80),
                         child: Icon(
-                          Icons.favorite_border,
+                          getRandomIcon(),
                           size: 200,
                           color: Colors.indigo.withAlpha(8),
                         ),
@@ -138,7 +139,7 @@ class QuoteItem extends StatelessWidget {
                         margin: const EdgeInsets.only(
                             left: 24, top: 80, bottom: 32),
                         child: Icon(
-                          Icons.rectangle_outlined,
+                          getRandomIcon(),
                           size: 62,
                           color: Colors.indigo.withAlpha(8),
                         ),

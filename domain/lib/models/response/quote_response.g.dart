@@ -27,6 +27,7 @@ QuoteResponse _$QuoteResponseFromJson(Map<String, dynamic> json) =>
       hashtags: (json['hashtags'] as List<dynamic>)
           .map((e) => IdValueDataResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
+      photo: QuoteImageResponse.fromJson(json['photo'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$QuoteResponseToJson(QuoteResponse instance) =>
@@ -36,4 +37,23 @@ Map<String, dynamic> _$QuoteResponseToJson(QuoteResponse instance) =>
       'author': instance.author,
       'text': instance.text,
       'hashtags': instance.hashtags,
+      'photo': instance.photo,
+    };
+
+QuoteImageResponse _$QuoteImageResponseFromJson(Map<String, dynamic> json) =>
+    QuoteImageResponse(
+      id: json['id'] as String,
+      color: json['color'] as String,
+      blurHash: json['blurHash'] as String,
+      author: json['author'] as String,
+      url: json['url'] as String,
+    );
+
+Map<String, dynamic> _$QuoteImageResponseToJson(QuoteImageResponse instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'color': instance.color,
+      'blurHash': instance.blurHash,
+      'author': instance.author,
+      'url': instance.url,
     };

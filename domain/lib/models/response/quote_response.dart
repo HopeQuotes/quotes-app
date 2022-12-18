@@ -24,6 +24,7 @@ class QuoteResponse {
   String author;
   String text;
   List<IdValueDataResponse> hashtags;
+  QuoteImageResponse photo;
 
   QuoteResponse({
     required this.id,
@@ -31,8 +32,30 @@ class QuoteResponse {
     required this.author,
     required this.text,
     required this.hashtags,
+    required this.photo,
   });
 
   factory QuoteResponse.fromJson(Map<String, dynamic> json) =>
       _$QuoteResponseFromJson(json);
+}
+
+
+@JsonSerializable()
+class QuoteImageResponse {
+  String id;
+  String color;
+  String blurHash;
+  String author;
+  String url;
+
+  QuoteImageResponse({
+    required this.id,
+    required this.color,
+    required this.blurHash,
+    required this.author,
+    required this.url,
+  });
+
+  factory QuoteImageResponse.fromJson(Map<String, dynamic> json) =>
+      _$QuoteImageResponseFromJson(json);
 }

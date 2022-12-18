@@ -7,7 +7,7 @@ import 'package:domain/models/cache/user_cache.dart';
 import 'package:domain/models/mappers/ui/user_mapper.dart';
 import 'package:domain/models/state/domain_result.dart';
 import 'package:domain/models/ui/user.dart';
-import 'package:domain/repositories/abstraction/quotes_repository.dart';
+import 'package:domain/repositories/abstraction/home_repository.dart';
 import 'package:domain/models/response/quote_response.dart';
 import 'package:domain/models/response/quote_states_response.dart';
 import 'package:domain/models/request/set_quote_state_request.dart';

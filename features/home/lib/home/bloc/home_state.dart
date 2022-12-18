@@ -15,10 +15,10 @@ enum QuoteUpdateStateStatus {
 
 class HomeState extends Equatable {
   final QuotesPagingStatus? quotesPagingStatus;
-  final QuoteUpdateStateStatus? quoteUpdateStateStatus;
   final List<Quote>? quotes;
-  final List<QuoteState>? quoteStates;
   final String? message;
+  final QuoteUpdateStateStatus? quoteUpdateStateStatus;
+  final List<QuoteState>? quoteStates;
   final User? user;
 
   @override

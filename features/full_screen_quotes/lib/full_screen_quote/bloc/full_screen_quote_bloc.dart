@@ -3,30 +3,37 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:domain/models/state/domain_result.dart';
 import 'package:domain/models/ui/quote.dart';
-import 'package:domain/models/ui/user.dart';
-import 'package:domain/repositories/abstraction/home_repository.dart';
-import 'package:common/utils/utils.dart';
+import 'package:domain/repositories/abstraction/create_quote_repository.dart';
+import 'package:domain/repositories/abstraction/full_screen_quote_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:meta/meta.dart';
 
-part 'home_event.dart';
+part 'full_screen_quote_event.dart';
 
-part 'home_state.dart';
+part 'full_screen_quote_state.dart';
 
-class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  final HomeRepository _repository;
-  final ScrollController quotesScrollController = ScrollController();
+class FullScreenQuoteBloc
+    extends Bloc<FullScreenQuoteEvent, FullScreenQuoteState> {
+  final FullScreenQuoteRepository _repository;
+  bool endOfPaginationReached = false;
   int page = 1;
-  var endOfPaginationReached = false;
+  final PageController pageController = PageController();
 
-  HomeBloc(this._repository) : super(const HomeState()) {
+  FullScreenQuoteBloc(this._repository) : super(const FullScreenQuoteState()) {
     on<LoadQuotes>(_loadQuotes);
-    on<GetProfile>(_getProfile);
 
-    quotesScrollController.onBottomReached(() {
-      if (!endOfPaginationReached) {
-        page++;
-        add(LoadQuotes());
+    pageController.addListener(() async {
+      if (pageController.position.atEdge) {
+        bool isTop = pageController.position.pixels == 0;
+        if (isTop) {
+          //
+        } else {
+          if (!endOfPaginationReached) {
+            page++;
+            add(LoadQuotes());
+          }
+        }
       }
     });
   }
@@ -45,10 +52,5 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
       return state;
     });
-  }
-
-  Future<void> _getProfile(GetProfile event, Emitter emitter) async {
-    final user = await _repository.getProfile();
-    emitter(state.copyWith(user: user));
   }
 }
