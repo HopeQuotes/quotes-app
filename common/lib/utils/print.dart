@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../resources/colors.dart';
 import 'colors.dart';
 import 'fonts.dart';
 
@@ -11,7 +12,7 @@ extension ContextExt on BuildContext {
   void showSnackBar(String? message,
       {MessageStatus status = MessageStatus.success}) {
     if (message != null) {
-      Color backColor = primaryLightColor;
+      Color backColor = AppColors.indigo;
 
       if (status == MessageStatus.fail) {
         backColor = primaryRedColor;

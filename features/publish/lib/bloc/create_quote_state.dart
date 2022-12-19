@@ -38,7 +38,7 @@ class CreateQuoteState extends Equatable {
   final List<Content>? fileContent;
   final String? message;
   final HashTagPagingStatus? hashTagPagingStatus;
-  final String? selectedImageId;
+  final QuoteImage? selectedImage;
   final List<QuoteState>? quoteStates;
   final QuoteState? selectedQuoteState;
 
@@ -51,7 +51,7 @@ class CreateQuoteState extends Equatable {
         userHashtags,
         imageStatus,
         images,
-        selectedImageId,
+        selectedImage,
         fileContent,
         quoteStates,
         selectedQuoteState
@@ -63,7 +63,7 @@ class CreateQuoteState extends Equatable {
       this.message,
       this.hashTagPagingStatus,
       this.images,
-      this.selectedImageId,
+      this.selectedImage,
       this.imageStatus,
       this.fileContent,
       this.selectedQuoteState,
@@ -79,7 +79,7 @@ class CreateQuoteState extends Equatable {
     List<Content>? fileContent,
     String? message,
     HashTagPagingStatus? hashTagPagingStatus,
-    String? selectedImageId,
+    QuoteImage? selectedImageId,
     List<QuoteState>? quoteStates,
     QuoteState? selectedQuoteState,
   }) {
@@ -92,7 +92,7 @@ class CreateQuoteState extends Equatable {
       fileContent: fileContent ?? this.fileContent,
       message: message ?? this.message,
       hashTagPagingStatus: hashTagPagingStatus ?? this.hashTagPagingStatus,
-      selectedImageId: selectedImageId ?? this.selectedImageId,
+      selectedImage: selectedImageId ?? this.selectedImage,
       quoteStates: quoteStates ?? this.quoteStates,
       selectedQuoteState: selectedQuoteState ?? this.selectedQuoteState,
     );

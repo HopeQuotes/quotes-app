@@ -8,6 +8,7 @@ import '../../../resources/colors.dart';
 class ChipItem extends StatefulWidget {
   final String text;
   final Function(int) onDelete;
+  final Function? onSelect;
   final int index;
   final bool canDismiss;
   final bool elevationEffect;
@@ -20,6 +21,7 @@ class ChipItem extends StatefulWidget {
     required this.text,
     required this.index,
     required this.onDelete,
+    this.onSelect,
     this.canDismiss = true,
     this.elevationEffect = true,
   });
@@ -79,7 +81,7 @@ class _ChipItemState extends State<ChipItem> {
           ),
         ),
         onTap: () {
-          //
+          widget.onSelect?.call();
         },
       ),
     );

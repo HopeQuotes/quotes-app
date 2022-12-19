@@ -1,5 +1,6 @@
 import '../../response/quote_response.dart';
 import '../../response/quote_state_response.dart';
+import '../../ui/image.dart';
 import '../../ui/quote.dart';
 
 extension QuoteResponseToUiMapper on QuoteResponse {

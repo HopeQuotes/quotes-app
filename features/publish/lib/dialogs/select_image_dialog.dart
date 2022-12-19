@@ -2,13 +2,14 @@ import 'package:common/core/baseBottomDialog.dart';
 import 'package:common/core/widgets/chip_item_widget.dart';
 import 'package:common/core/widgets/input_widget.dart';
 import 'package:common/navigation/exp.dart';
-import 'package:domain/models/ui/id_value.dart';
+import 'package:domain/models/ui/image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:publish/bloc/create_quote_bloc.dart';
 
-void showHashtagsDialog(BuildContext context, CreateQuoteBloc bloc,
-    {required Function(IdValue) onSelect}) async {
+void showImagesDialog(BuildContext context, CreateQuoteBloc bloc,
+    {required Function(QuoteImage) onSelect}) async {
   baseBottomDialog(
       content: BlocProvider.value(
         value: bloc,
@@ -28,32 +29,20 @@ void showHashtagsDialog(BuildContext context, CreateQuoteBloc bloc,
                       ),
                       SizedBox(
                         width: double.infinity,
-                        height: 100,
+                        height: 62,
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Padding(padding: EdgeInsets.all(12)),
-                            Flexible(
-                              flex: 10,
-                              child: Container(
-                                margin:
-                                    const EdgeInsets.only(top: 12, bottom: 12),
-                                child: Input(
-                                  hint: 'Search',
-                                  margin: const EdgeInsets.only(
-                                      top: 12, bottom: 12),
-                                ),
-                              ),
+                            const Spacer(),
+                            IconButton(
+                              padding: const EdgeInsets.all(4),
+                              onPressed: () {
+                                context.goBack();
+                              },
+                              icon: const Icon(Icons.close),
                             ),
-                            Flexible(
-                              flex: 2,
-                              child: IconButton(
-                                padding: const EdgeInsets.all(4),
-                                onPressed: () {
-                                  context.goBack();
-                                },
-                                icon: const Icon(Icons.close),
-                              ),
+                            const Padding(
+                              padding: EdgeInsets.all(6),
                             ),
                           ],
                         ),
@@ -61,23 +50,31 @@ void showHashtagsDialog(BuildContext context, CreateQuoteBloc bloc,
                       Expanded(
                         child: GridView.count(
                           physics: const BouncingScrollPhysics(),
-                          controller: bloc.hashtagScrollController,
                           crossAxisCount: 2,
-                          childAspectRatio: 2.5,
-                          children: (state.hashtags ?? [])
+                          childAspectRatio: 1,
+                          children: (state.images ?? [])
                               .map(
-                                (e) => ChipItem(
-                                  onSelect: () {
+                                (e) => GestureDetector(
+                                  child: Container(
+                                    margin: const EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(16),
+                                      child: BlurHash(
+                                        duration:
+                                            const Duration(milliseconds: 2000),
+                                        imageFit: BoxFit.cover,
+                                        hash: e.blurHash,
+                                        image: e.url,
+                                      ),
+                                    ),
+                                  ),
+                                  onTap: () {
                                     onSelect.call(e);
                                     context.goBack();
                                   },
-                                  elevationEffect: false,
-                                  canDismiss: false,
-                                  text: e.value ?? "",
-                                  onDelete: (index) {
-                                    //
-                                  },
-                                  index: 0,
                                 ),
                               )
                               .toList(),

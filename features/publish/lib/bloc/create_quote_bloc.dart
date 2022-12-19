@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:common/utils/print.dart';
 import 'package:common/utils/scroll.dart';
 import 'package:domain/models/state/domain_result.dart';
 import 'package:domain/models/ui/id_value.dart';
+import 'package:domain/models/ui/image.dart';
 import 'package:domain/models/ui/quote.dart';
 import 'package:domain/repositories/abstraction/publish_repository.dart';
 import 'package:equatable/equatable.dart';
@@ -11,6 +13,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 
 part 'create_quote_event.dart';
+
 part 'create_quote_state.dart';
 
 class CreateQuoteBloc extends Bloc<CreateQuoteEvent, CreateQuoteState> {
@@ -21,13 +24,13 @@ class CreateQuoteBloc extends Bloc<CreateQuoteEvent, CreateQuoteState> {
   int page = 1;
   var endOfPaginationReached = false;
 
-  CreateQuoteBloc(this._repository) : super(CreateQuoteState()) {
+  CreateQuoteBloc(this._repository) : super(const CreateQuoteState()) {
     on<CreateQuote>(_createQuote);
     on<RemoveHashTag>(_deleteHashtag);
     on<AddHashTag>(_addHashtag);
     on<LoadHashTags>(_loadHashtags);
     on<LoadImages>(_loadImages);
-    on<SetSelectedImageId>(_setSelectedImage);
+    on<SetSelectedImage>(_setSelectedImage);
 
     hashtagScrollController.onBottomReached(() {
       if (!endOfPaginationReached) {
@@ -38,10 +41,9 @@ class CreateQuoteBloc extends Bloc<CreateQuoteEvent, CreateQuoteState> {
   }
 
   Future<void> _setSelectedImage(
-      SetSelectedImageId event, Emitter emitter) async {
-    return emitter(state.copyWith(selectedImageId: event.id));
+      SetSelectedImage event, Emitter emitter) async {
+    return emitter(state.copyWith(selectedImageId: event.image));
   }
-
 
   Future<void> _deleteHashtag(RemoveHashTag event, Emitter emitter) async {
     state.userHashtags
@@ -67,8 +69,7 @@ class CreateQuoteBloc extends Bloc<CreateQuoteEvent, CreateQuoteState> {
             authorController.text,
             bodyController.text,
             (state.userHashtags ?? []).map((e) => e.id).toList(),
-            state.selectedImageId ?? "",
-            state.selectedQuoteState?.id ?? ""), onData: (data) {
+            state.selectedImage?.id ?? ""), onData: (data) {
       if (data is DomainSuccess) {
         return state.copyWith(
             createQuoteStatus: CreateQuoteStatus.success,

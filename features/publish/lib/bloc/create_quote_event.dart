@@ -31,11 +31,11 @@ class LoadImages extends CreateQuoteEvent {}
 
 class LoadStates extends CreateQuoteEvent {}
 
-class SetSelectedImageId extends CreateQuoteEvent {
-  final String id;
+class SetSelectedImage extends CreateQuoteEvent {
+  final QuoteImage image;
 
-  SetSelectedImageId({
-    required this.id,
+  SetSelectedImage({
+    required this.image,
   });
 }
 

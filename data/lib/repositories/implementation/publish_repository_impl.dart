@@ -17,17 +17,10 @@ class PublishRepositoryImpl extends PublishRepository {
 
   @override
   Stream<DomainResult> createQuote(String author, String body,
-      List<String> hashtags, String photoId, String stateId) async* {
+      List<String> hashtags, String photoId) async* {
     try {
       yield DomainLoading();
-      print(author);
-      print(body);
-      print(hashtags);
-      print(photoId);
-      if (author.trim().isEmpty ||
-          body.isEmpty ||
-          hashtags.isEmpty ||
-          stateId.isEmpty) {
+      if (author.trim().isEmpty || body.isEmpty || hashtags.isEmpty) {
         yield DomainError(message: 'Заполните все данные !');
       } else if (photoId.isEmpty) {
         yield DomainError(message: 'Выберите рисунок !');
@@ -37,8 +30,7 @@ class PublishRepositoryImpl extends PublishRepository {
                     author: author.trim(),
                     text: body.trim(),
                     hashtagIds: hashtags,
-                    photoId: photoId,
-                    stateId: stateId)
+                    photoId: photoId)
                 .toJson());
         if (response.statusCode == 200) {
           yield DomainSuccess(message: "Цитата успешно создана !");
