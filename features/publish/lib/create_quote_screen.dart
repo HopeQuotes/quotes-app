@@ -372,6 +372,11 @@ class _PublishScreenState extends State<PublishScreen> {
             );
           },
           listener: (context, state) {
+            var bloc = context.read<CreateQuoteBloc>();
+            if (state.createQuoteStatus == CreateQuoteStatus.success) {
+              bloc.authorController.clear();
+              bloc.bodyController.clear();
+            }
             context.showSnackBar(state.message);
           },
         ),
