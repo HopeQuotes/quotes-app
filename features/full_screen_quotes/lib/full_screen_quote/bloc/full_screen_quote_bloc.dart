@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:domain/models/state/domain_result.dart';
 import 'package:domain/models/ui/quote.dart';
-import 'package:domain/repositories/abstraction/create_quote_repository.dart';
 import 'package:domain/repositories/abstraction/full_screen_quote_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';

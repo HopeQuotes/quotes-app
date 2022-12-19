@@ -10,13 +10,15 @@ class CreateQuoteRequest {
   List<String> hashtagIds;
   @JsonKey(name: 'photoID')
   String? photoId;
+  @JsonKey(name: "stateID")
+  String stateId;
 
-  CreateQuoteRequest({
-    required this.author,
-    required this.text,
-    required this.hashtagIds,
-    this.photoId,
-  });
+  CreateQuoteRequest(
+      {required this.author,
+        required this.text,
+        required this.hashtagIds,
+        this.photoId,
+        required this.stateId});
 
   factory CreateQuoteRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateQuoteRequestFromJson(json);

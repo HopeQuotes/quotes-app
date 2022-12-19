@@ -2,44 +2,52 @@ import 'dart:convert';
 
 import 'package:data/api/dio.dart';
 import 'package:domain/models/base/base_response.dart';
-import 'package:domain/models/state/domain_result.dart';
+import 'package:domain/models/mappers/ui/id_value_mapper.dart';
+import 'package:domain/models/mappers/ui/image_mapper.dart';
 import 'package:domain/models/request/create_quote_request.dart';
 import 'package:domain/models/response/hashtags_response.dart';
 import 'package:domain/models/response/image_response.dart';
-import 'package:domain/models/ui/image.dart';
+import 'package:domain/models/state/domain_result.dart';
 import 'package:domain/models/ui/id_value.dart';
-import 'package:domain/repositories/abstraction/create_quote_repository.dart';
-import 'package:domain/models/mappers/ui/id_value_mapper.dart';
-import 'package:domain/models/mappers/ui/image_mapper.dart';
+import 'package:domain/models/ui/image.dart';
+import 'package:domain/repositories/abstraction/publish_repository.dart';
 
-class CreateQuoteRepositoryImpl extends QuoteRepository {
+class PublishRepositoryImpl extends PublishRepository {
   final DioClient _client;
 
   @override
   Stream<DomainResult> createQuote(String author, String body,
-      List<String> hashtags, String photoId) async* {
+      List<String> hashtags, String photoId, String stateId) async* {
     try {
       yield DomainLoading();
-      if (author.trim().isEmpty || body.isEmpty || hashtags.isEmpty) {
-        yield DomainError(message: 'Malumotlarni oxirigacha toldiring !');
+      print(author);
+      print(body);
+      print(hashtags);
+      print(photoId);
+      if (author.trim().isEmpty ||
+          body.isEmpty ||
+          hashtags.isEmpty ||
+          stateId.isEmpty) {
+        yield DomainError(message: 'Заполните все данные !');
       } else if (photoId.isEmpty) {
-        yield DomainError(message: 'Rasmni tanlang');
+        yield DomainError(message: 'Выберите рисунок !');
       } else {
         var response = await _client.post('v1/quote',
             data: CreateQuoteRequest(
-                    author: author,
-                    text: body,
+                    author: author.trim(),
+                    text: body.trim(),
                     hashtagIds: hashtags,
-                    photoId: photoId)
+                    photoId: photoId,
+                    stateId: stateId)
                 .toJson());
         if (response.statusCode == 200) {
-          yield DomainSuccess(message: "Quote created !");
+          yield DomainSuccess(message: "Цитата успешно создана !");
         } else {
-          yield DomainError(message: 'Xatolik yuz berdi...');
+          yield DomainError(message: 'Что то пошло не так...');
         }
       }
     } catch (e) {
-      yield DomainError(message: "Kutilmagan xatolik yuz berdi");
+      yield DomainError(message: "Что то пошло не так");
     }
   }
 
@@ -54,20 +62,8 @@ class CreateQuoteRepositoryImpl extends QuoteRepository {
       yield DomainSuccess<List<IdValue>>(
           data: decoded.data.data.map((e) => e.toUi()).toList());
     } catch (e) {
-      yield DomainError(message: 'Something went wrong...');
+      yield DomainError(message: 'Что то пошло не так...');
     }
-  }
-
-  @override
-  Stream<DomainResult> deleteQuote() {
-    // TODO: implement deleteQuote
-    throw UnimplementedError();
-  }
-
-  @override
-  Stream<DomainResult> getQuotes(int page) {
-    // TODO: implement getQuotes
-    throw UnimplementedError();
   }
 
   @override
@@ -81,12 +77,11 @@ class CreateQuoteRepositoryImpl extends QuoteRepository {
       yield DomainSuccess<List<QuoteImage>>(
           data: decoded.data.data.map((e) => e.toUi()).toList());
     } catch (e) {
-      print(e);
-      yield DomainError(message: 'Something went wrong...');
+      yield DomainError(message: 'Что то пошло не так...');
     }
   }
 
-  CreateQuoteRepositoryImpl({
+  PublishRepositoryImpl({
     required DioClient client,
   }) : _client = client;
 }

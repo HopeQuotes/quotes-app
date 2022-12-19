@@ -8,7 +8,7 @@ import 'package:home/home/home_screen.dart';
 import 'package:motion_tab_bar/motiontabbar.dart';
 import 'package:my_quotes/my_quotes/my_quotes_screen.dart';
 import 'package:profile/profile_screen.dart';
-import 'package:publish/publish_screen.dart';
+import 'package:publish/create_quote_screen.dart';
 class Core extends StatefulWidget {
   @override
   State<Core> createState() => _CoreState();
