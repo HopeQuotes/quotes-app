@@ -1,10 +1,17 @@
 import 'package:common/core/widgets/translate_anim_widget.dart';
+import 'package:common/resources/colors.dart';
+import 'package:common/utils/constants.dart';
+import 'package:common/utils/fonts.dart';
+import 'package:common/utils/path.dart';
+import 'package:common/utils/share.dart';
 import 'package:di/data_module_injector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:full_screen_quotes/full_screen_quote/bloc/full_screen_quote_bloc.dart';
+import 'package:full_screen_quotes/full_screen_quote/full_screen_quote_item_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:screenshot/screenshot.dart';
 
 class FullScreenQuotesScreen extends StatefulWidget {
   const FullScreenQuotesScreen({super.key});
@@ -25,100 +32,83 @@ class ExampleQuoteObject {
 
 class _FullScreenQuotesState extends State<FullScreenQuotesScreen> {
   var pageIndex = 0;
-  var isLiked = false;
+  bool shareMode = false;
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return BlocProvider(
       create: (_) => FullScreenQuoteBloc(injector())..add(LoadQuotes()),
       child: BlocConsumer<FullScreenQuoteBloc, FullScreenQuoteState>(
           builder: (context, state) {
+            var bloc = context.read<FullScreenQuoteBloc>();
             if (state.quotes != null) {
               return Stack(
                 children: [
-                  Align(
+                  Container(
                     alignment: Alignment.center,
-                    child: BlurHash(
-                      duration: const Duration(milliseconds: 2000),
-                      imageFit: BoxFit.cover,
-                      hash: (state.quotes ?? [])[pageIndex].image.blurHash,
-                      image: (state.quotes ?? [])[pageIndex].image.url,
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: PageView(
-                      onPageChanged: (page) {
-                        setState(() {
-                          isLiked = false;
-                          pageIndex = page;
-                        });
-                      },
-                      scrollDirection: Axis.vertical,
-                      controller:
-                          context.read<FullScreenQuoteBloc>().pageController,
-                      children: (state.quotes ?? []).map(
-                        (e) {
-                          return ClipRRect(
-                            child: Stack(
-                              children: [
+                    child: ClipRRect(
+                      borderRadius: shareMode
+                          ? BorderRadius.circular(12)
+                          : BorderRadius.circular(0),
+                      child: AnimatedContainer(
+                        width: shareMode ? size.width * .9 : size.width,
+                        alignment: Alignment.center,
+                        height: shareMode ? 300 : size.height,
+                        duration: const Duration(milliseconds: 250),
+                        child: Screenshot(
+                          controller: bloc.screenShotController,
+                          child: Stack(
+                            children: [
+                              Align(
+                                alignment: Alignment.center,
+                                child: BlurHash(
+                                  duration: const Duration(milliseconds: 2000),
+                                  imageFit: BoxFit.cover,
+                                  hash: (state.quotes ?? [])[pageIndex]
+                                      .image
+                                      .blurHash,
+                                  image:
+                                      (state.quotes ?? [])[pageIndex].image.url,
+                                ),
+                              ),
+                              Align(
+                                alignment: Alignment.center,
+                                child: PageView(
+                                  onPageChanged: (page) {
+                                    setState(() {
+                                      // isLiked = false;
+                                      pageIndex = page;
+                                    });
+                                  },
+                                  scrollDirection: Axis.vertical,
+                                  controller: context
+                                      .read<FullScreenQuoteBloc>()
+                                      .pageController,
+                                  children: (state.quotes ?? []).map(
+                                    (e) {
+                                      return FullScreenQuoteItemWidget(
+                                          quote: e);
+                                    },
+                                  ).toList(),
+                                ),
+                              ),
+                              if (shareMode)
                                 Align(
+                                  alignment: Alignment.bottomRight,
                                   child: Container(
-                                    color: Colors.black.withAlpha(150),
+                                    margin: const EdgeInsets.all(12),
+                                    child: Text(
+                                      "Hope quotes",
+                                      style:
+                                          getTextStyle(color: Colors.white24),
+                                    ),
                                   ),
-                                ),
-                                Align(
-                                  alignment: Alignment.center,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: Container(
-                                          margin: const EdgeInsets.all(24),
-                                          alignment: Alignment.center,
-                                          child: TransitionAnimWidget(
-                                            startDirection:
-                                                StartDirection.bottom,
-                                            duration: 400,
-                                            child: Text(
-                                                style: GoogleFonts.nunito(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.w600,
-                                                    fontSize: 16),
-                                                textAlign: TextAlign.center,
-                                                (state.quotes ?? [])[pageIndex]
-                                                    .text),
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment: Alignment.bottomCenter,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(12),
-                                          child: TransitionAnimWidget(
-                                            startDirection:
-                                                StartDirection.bottom,
-                                            duration: 1000,
-                                            child: Text(
-                                                style: GoogleFonts.nunito(
-                                                    fontWeight: FontWeight.w600,
-                                                    fontSize: 16,
-                                                    fontStyle: FontStyle.italic,
-                                                    color: Colors.white),
-                                                textAlign: TextAlign.center,
-                                                "- ${(state.quotes ?? [])[pageIndex].author} -"),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ).toList(),
+                                )
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                   Align(
@@ -126,35 +116,64 @@ class _FullScreenQuotesState extends State<FullScreenQuotesScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        TransitionAnimWidget(
-                          startDirection: StartDirection.bottom,
-                          duration: 400,
-                          child: Container(
-                            margin: const EdgeInsets.only(
-                                right: 12, top: 24, bottom: 24),
-                            padding: const EdgeInsets.all(6),
-                            decoration: BoxDecoration(
-                              color: Colors.grey.withAlpha(50),
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(12.0)),
-                            ),
-                            child: GestureDetector(
-                              child: Icon(
-                                isLiked
-                                    ? Icons.favorite
-                                    : Icons.favorite_border,
-                                size: 36,
-                                color:
-                                    isLiked ? Colors.redAccent : Colors.white,
+                        if (!shareMode)
+                          TransitionAnimWidget(
+                            startDirection: StartDirection.bottom,
+                            duration: 400,
+                            child: Container(
+                              margin: const EdgeInsets.only(
+                                  right: 12, top: 24, bottom: 24),
+                              padding: const EdgeInsets.all(6),
+                              decoration: BoxDecoration(
+                                color: shareMode
+                                    ? AppColors.indigo.withAlpha(32)
+                                    : Colors.grey.withAlpha(50),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(12.0)),
                               ),
-                              onTap: () {
-                                setState(() {
-                                  isLiked = !isLiked;
-                                });
-                              },
+                              child: GestureDetector(
+                                child: Icon(
+                                  (state.quotes ?? [])[pageIndex].isLiked ??
+                                          false
+                                      ? Icons.favorite
+                                      : Icons.favorite_border,
+                                  size: 36,
+                                  color:
+                                      (state.quotes ?? [])[pageIndex].isLiked ==
+                                              true
+                                          ? Colors.redAccent
+                                          : Colors.white,
+                                ),
+                                onTap: () async {
+                                  //
+                                },
+                              ),
                             ),
                           ),
-                        ),
+                        if (shareMode)
+                          TransitionAnimWidget(
+                            startDirection: StartDirection.bottom,
+                            duration: 400,
+                            child: Container(
+                              margin: const EdgeInsets.only(
+                                  right: 12, top: 24, bottom: 24),
+                              padding: const EdgeInsets.all(6),
+                              decoration: BoxDecoration(
+                                color: shareMode
+                                    ? AppColors.indigo.withAlpha(200)
+                                    : Colors.grey.withAlpha(50),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(12.0)),
+                              ),
+                              child: GestureDetector(
+                                child: const Icon(Icons.save_alt,
+                                    size: 36, color: Colors.white),
+                                onTap: () {
+                                  bloc.add(ShareQuote());
+                                },
+                              ),
+                            ),
+                          ),
                         TransitionAnimWidget(
                           startDirection: StartDirection.bottom,
                           duration: 400,
@@ -163,18 +182,30 @@ class _FullScreenQuotesState extends State<FullScreenQuotesScreen> {
                                 right: 12, top: 24, bottom: 24),
                             padding: const EdgeInsets.all(6),
                             decoration: BoxDecoration(
-                              color: Colors.grey.withAlpha(50),
+                              color: shareMode
+                                  ? AppColors.indigo.withAlpha(200)
+                                  : Colors.grey.withAlpha(50),
                               borderRadius: const BorderRadius.all(
                                 Radius.circular(12.0),
                               ),
                             ),
-                            child: const Icon(
-                              Icons.upload_rounded,
-                              size: 36,
-                              color: Colors.white,
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  shareMode = !shareMode;
+                                });
+                              },
+                              child: Icon(
+                                shareMode
+                                    ? Icons.fit_screen_rounded
+                                    : Icons.upload_rounded,
+                                size: 36,
+                                color: shareMode ? Colors.white : Colors.white,
+                              ),
                             ),
                           ),
                         ),
+                        const Padding(padding: EdgeInsets.only(left: 8)),
                       ],
                     ),
                   ),

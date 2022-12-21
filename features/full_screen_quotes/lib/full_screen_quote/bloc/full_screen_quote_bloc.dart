@@ -1,12 +1,15 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:common/utils/path.dart';
+import 'package:common/utils/share.dart';
 import 'package:domain/models/state/domain_result.dart';
 import 'package:domain/models/ui/quote.dart';
 import 'package:domain/repositories/abstraction/full_screen_quote_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
+import 'package:screenshot/screenshot.dart';
 
 part 'full_screen_quote_event.dart';
 
@@ -18,9 +21,11 @@ class FullScreenQuoteBloc
   bool endOfPaginationReached = false;
   int page = 1;
   final PageController pageController = PageController();
+  final ScreenshotController screenShotController = ScreenshotController();
 
   FullScreenQuoteBloc(this._repository) : super(const FullScreenQuoteState()) {
     on<LoadQuotes>(_loadQuotes);
+    on<ShareQuote>(_shareQuote);
 
     pageController.addListener(() async {
       if (pageController.position.atEdge) {
@@ -35,6 +40,12 @@ class FullScreenQuoteBloc
         }
       }
     });
+  }
+
+  Future<void> _shareQuote(ShareQuote event,Emitter emitter) async {
+    var saved = await screenShotController.captureAndSave(await Paths
+        .getApplicationDocPath());
+    QuoteShare.share(saved);
   }
 
   Future<void> _loadQuotes(LoadQuotes event, Emitter emitter) async {

@@ -1,4 +1,6 @@
+import 'package:common/core/widgets/quote_item_placeholder.dart';
 import 'package:common/utils/array.dart';
+import 'package:domain/models/ui/quote.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:home/home/bloc/home_bloc.dart';
@@ -34,7 +36,13 @@ class HomeScreen extends StatelessWidget {
               } else {
                 return BlocProvider.value(
                   value: bloc,
-                  child: const DashBoard(),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const DashBoard(),
+                      if (state.quotes == null) const QuoteItemPlaceHolder(),
+                    ],
+                  ),
                 );
               }
             },

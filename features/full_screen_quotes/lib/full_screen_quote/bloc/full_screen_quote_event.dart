@@ -5,3 +5,7 @@ abstract class FullScreenQuoteEvent {}
 
 
 class LoadQuotes extends FullScreenQuoteEvent {}
+
+class ShareQuote extends FullScreenQuoteEvent {
+
+}

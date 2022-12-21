@@ -7,8 +7,10 @@ class Quote {
   String text;
   List<String> hashtags;
   QuoteImage image;
+  bool? isLiked;
 
-  Quote(this.id, this.state, this.author, this.text, this.hashtags, this.image);
+  Quote(this.id, this.state, this.author, this.text, this.hashtags, this.image,
+      this.isLiked);
 }
 
 class QuoteState {
@@ -24,4 +26,3 @@ class QuoteState {
     required this.color,
   });
 }
-

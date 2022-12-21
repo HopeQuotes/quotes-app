@@ -6,7 +6,7 @@ import '../../ui/quote.dart';
 extension QuoteResponseToUiMapper on QuoteResponse {
   Quote toUi() {
     return Quote(id, state.toUi(), author, text,
-        hashtags.map((e) => e.value).toList(), photo.toUi());
+        hashtags.map((e) => e.value).toList(), photo.toUi(), false);
   }
 }
 
