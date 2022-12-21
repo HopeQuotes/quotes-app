@@ -21,16 +21,35 @@ class SplashScreen extends StatelessWidget {
       child: BlocConsumer<SplashBloc, SplashState>(builder: (context, state) {
         return Container(
           color: AppColors.indigo.withAlpha(180),
-          child: Center(
-            child: AnimatedTextKit(
-              isRepeatingAnimation: false,
-              animatedTexts: [
-                TyperAnimatedText('Quotes app',
-                    textStyle: getTextStyle(size: 20, color: Colors.white)),
-                TyperAnimatedText('Share your minds...',
-                    textStyle: getTextStyle(color: Colors.white, size: 20)),
-              ],
-            ),
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.center,
+                child: Center(
+                  child: AnimatedTextKit(
+                    isRepeatingAnimation: false,
+                    animatedTexts: [
+                      TyperAnimatedText('Quotes app',
+                          textStyle:
+                              getTextStyle(size: 20, color: Colors.white)),
+                      TyperAnimatedText('Share your minds...',
+                          textStyle:
+                              getTextStyle(color: Colors.white, size: 20)),
+                    ],
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  margin: const EdgeInsets.only(bottom: 24),
+                  child: Text(
+                    "@xaldarof",
+                    style: getTextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
           ),
         );
       }, listener: (context, state) {
