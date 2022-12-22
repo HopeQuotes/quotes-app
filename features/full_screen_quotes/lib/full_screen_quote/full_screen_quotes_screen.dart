@@ -1,16 +1,12 @@
 import 'package:common/core/widgets/translate_anim_widget.dart';
 import 'package:common/resources/colors.dart';
-import 'package:common/utils/constants.dart';
 import 'package:common/utils/fonts.dart';
-import 'package:common/utils/path.dart';
-import 'package:common/utils/share.dart';
 import 'package:di/data_module_injector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:full_screen_quotes/full_screen_quote/bloc/full_screen_quote_bloc.dart';
 import 'package:full_screen_quotes/full_screen_quote/full_screen_quote_item_widget.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:screenshot/screenshot.dart';
 
 class FullScreenQuotesScreen extends StatefulWidget {
@@ -33,6 +29,8 @@ class ExampleQuoteObject {
 class _FullScreenQuotesState extends State<FullScreenQuotesScreen> {
   var pageIndex = 0;
   bool shareMode = false;
+  String image = "";
+  String hash = "";
 
   @override
   Widget build(BuildContext context) {
@@ -62,14 +60,19 @@ class _FullScreenQuotesState extends State<FullScreenQuotesScreen> {
                             children: [
                               Align(
                                 alignment: Alignment.center,
-                                child: BlurHash(
-                                  duration: const Duration(milliseconds: 2000),
-                                  imageFit: BoxFit.cover,
-                                  hash: (state.quotes ?? [])[pageIndex]
-                                      .image
-                                      .blurHash,
-                                  image:
-                                      (state.quotes ?? [])[pageIndex].image.url,
+                                child: AnimatedSwitcher(
+                                  duration: const Duration(milliseconds: 1500),
+                                  child: BlurHash(
+                                    color: Colors.transparent,
+                                    key: UniqueKey(),
+                                    duration:
+                                        const Duration(milliseconds: 2000),
+                                    imageFit: BoxFit.cover,
+                                    hash: (state.quotes ?? [])[pageIndex]
+                                        .imageHash,
+                                    image:
+                                        (state.quotes ?? [])[pageIndex].image,
+                                  ),
                                 ),
                               ),
                               Align(

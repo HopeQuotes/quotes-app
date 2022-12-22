@@ -47,7 +47,7 @@ class _QuotesState extends State<Quotes> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(child: SplashScreen()),
     );
   }

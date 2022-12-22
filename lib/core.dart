@@ -1,6 +1,6 @@
 import 'package:common/navigation/exp.dart';
 import 'package:common/resources/colors.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:full_screen_quotes/full_screen_quote/full_screen_quotes_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,7 +9,10 @@ import 'package:motion_tab_bar/motiontabbar.dart';
 import 'package:my_quotes/my_quotes/my_quotes_screen.dart';
 import 'package:profile/profile_screen.dart';
 import 'package:publish/create_quote_screen.dart';
+
 class Core extends StatefulWidget {
+  const Core({super.key});
+
   @override
   State<Core> createState() => _CoreState();
 }
@@ -18,8 +21,8 @@ class _CoreState extends State<Core> {
   final _mainScreens = [
     const HomeScreen(),
     const FullScreenQuotesScreen(),
-    PublishScreen(),
-    MyQuotesScreen(),
+    const PublishScreen(),
+    const MyQuotesScreen(),
     ProfileScreen(),
   ];
 
@@ -49,8 +52,8 @@ class _CoreState extends State<Core> {
           Icons.format_quote_rounded,
           Icons.person_outline
         ],
-        textStyle:
-            GoogleFonts.nunito(fontWeight: FontWeight.w600, fontSize: 12, color: Colors.black26),
+        textStyle: GoogleFonts.nunito(
+            fontWeight: FontWeight.w600, fontSize: 12, color: Colors.black26),
       ),
       body: _mainScreens[screenIndex],
     );

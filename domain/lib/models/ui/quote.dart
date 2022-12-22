@@ -2,15 +2,16 @@ import 'image.dart';
 
 class Quote {
   String id;
-  QuoteState state;
+  String state;
   String author;
   String text;
   List<String> hashtags;
-  QuoteImage image;
+  String image;
+  String imageHash;
   bool? isLiked;
 
   Quote(this.id, this.state, this.author, this.text, this.hashtags, this.image,
-      this.isLiked);
+      this.imageHash, this.isLiked);
 }
 
 class QuoteState {

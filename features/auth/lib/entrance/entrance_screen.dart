@@ -38,7 +38,7 @@ class _EntranceScreenState extends State<EntranceScreen> {
               return LoginScreen();
             }
             if (index == 1) {
-              return RegisterScreen();
+              return const RegisterScreen();
             }
 
             return Container();
