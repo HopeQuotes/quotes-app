@@ -7,10 +7,6 @@ import 'package:path/path.dart' as p;
 
 part 'app_database.g.dart'; // the generated code will be there
 
-void initDb() async {
-  //
-}
-
 @DataClassName('QuotesCache')
 class QuotesTable extends Table {
   TextColumn get id => text()();

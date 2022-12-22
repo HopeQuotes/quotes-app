@@ -2,6 +2,7 @@ import 'package:data/cache/database/core/app_database.dart';
 import 'package:data/mapper/user_mapper.dart';
 import 'package:domain/data_source/user_data_source.dart';
 import 'package:domain/models/ui/user.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../cache/database/dao/user_dao.dart';
 
@@ -20,6 +21,7 @@ class UserLocalDataSourceImpl extends UserLocalDataSource {
 
   @override
   Future<void> saveUser(User user) async {
+    (await SharedPreferences.getInstance()).setString('token', user.authToken);
     await _userDao.insertUser(user);
   }
 }

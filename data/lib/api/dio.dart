@@ -1,6 +1,8 @@
+import 'package:data/cache/database/core/app_database.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_logging_interceptor/dio_logging_interceptor.dart';
 import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../cache/keys.dart';
 
@@ -28,15 +30,14 @@ class DioClient {
   }
 
   Future<BaseOptions> _getOptions() async {
-    // var user = (await DataBas);
-    // var token = user?.authToken;
+    final token = (await SharedPreferences.getInstance()).getString('token');
 
     return BaseOptions(
         baseUrl: _baseUrl,
         responseType: ResponseType.plain,
         connectTimeout: 120000,
         headers: {
-          "Authorization": "Bearer ",
+          "Authorization": "Bearer $token",
         },
         receiveTimeout: 120000,
         validateStatus: (code) {

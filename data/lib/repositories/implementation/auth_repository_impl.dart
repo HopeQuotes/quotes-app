@@ -17,8 +17,6 @@ class AuthRepositoryImpl extends AuthRepository {
   final DioClient _client;
   final UserLocalDataSource userLocalDataSource;
 
-
-
   @override
   Stream<DomainResult> login(String email, String password) async* {
     try {
@@ -43,9 +41,7 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<void> saveUser(User user) async {
-    userLocalDataSource.getUser();
-    // await (await getBox<UserCache>(HiveKeys.profile))
-    //     .put(HiveKeys.profile, user.toCache());
+    await userLocalDataSource.saveUser(user);
   }
 
   @override
