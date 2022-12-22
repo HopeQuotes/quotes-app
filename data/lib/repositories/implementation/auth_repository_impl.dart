@@ -1,9 +1,8 @@
 import 'dart:convert';
 
 import 'package:data/api/dio.dart';
-import 'package:data/cache/box.dart';
 import 'package:data/cache/keys.dart';
-import 'package:domain/models/cache/user_cache.dart';
+import 'package:domain/data_source/user_data_source.dart';
 import 'package:domain/models/request/register_request.dart';
 import 'package:domain/models/request/verify_request.dart';
 import 'package:domain/models/state/domain_result.dart';
@@ -16,10 +15,9 @@ import 'package:domain/models/mappers/ui/user_mapper.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
   final DioClient _client;
+  final UserLocalDataSource userLocalDataSource;
 
-  AuthRepositoryImpl({
-    required DioClient client,
-  }) : _client = client;
+
 
   @override
   Stream<DomainResult> login(String email, String password) async* {
@@ -45,8 +43,9 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<void> saveUser(User user) async {
-    await (await getBox<UserCache>(HiveKeys.profile))
-        .put(HiveKeys.profile, user.toCache());
+    userLocalDataSource.getUser();
+    // await (await getBox<UserCache>(HiveKeys.profile))
+    //     .put(HiveKeys.profile, user.toCache());
   }
 
   @override
@@ -94,4 +93,9 @@ class AuthRepositoryImpl extends AuthRepository {
       yield DomainError(message: 'Nomalum xatolik yuz berdi');
     }
   }
+
+  AuthRepositoryImpl({
+    required this.userLocalDataSource,
+    required DioClient client,
+  }) : _client = client;
 }

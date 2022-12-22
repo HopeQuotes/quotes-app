@@ -1,13 +1,11 @@
-import 'package:domain/models/cache/user_cache.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_logging_interceptor/dio_logging_interceptor.dart';
 import 'package:flutter/foundation.dart';
 
-import '../cache/box.dart';
 import '../cache/keys.dart';
 
 extension ResponseExt on Response {
-  bool get isSuccessful => this.statusCode == 200;
+  bool get isSuccessful => statusCode == 200;
 }
 
 class DioClient {
@@ -30,16 +28,15 @@ class DioClient {
   }
 
   Future<BaseOptions> _getOptions() async {
-    var user =
-        (await getBox<UserCache>(HiveKeys.profile)).get(HiveKeys.profile);
-    var token = user?.authToken;
+    // var user = (await DataBas);
+    // var token = user?.authToken;
 
     return BaseOptions(
         baseUrl: _baseUrl,
         responseType: ResponseType.plain,
         connectTimeout: 120000,
         headers: {
-          "Authorization": "Bearer $token",
+          "Authorization": "Bearer ",
         },
         receiveTimeout: 120000,
         validateStatus: (code) {
