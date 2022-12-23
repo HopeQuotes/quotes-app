@@ -8,7 +8,7 @@ class AppColors {
   }
 
   static Color get indigo {
-    return const Color(0xff7a6bf5);
+    return const Color(0xff5f4df3);
   }
 
   static Color get red {

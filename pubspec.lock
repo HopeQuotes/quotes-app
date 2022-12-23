@@ -85,6 +85,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
+  curved_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: curved_navigation_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
   data:
     dependency: transitive
     description:
@@ -292,7 +299,7 @@ packages:
     source: hosted
     version: "1.0.3"
   motion_tab_bar:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: motion_tab_bar
       url: "https://pub.dartlang.org"

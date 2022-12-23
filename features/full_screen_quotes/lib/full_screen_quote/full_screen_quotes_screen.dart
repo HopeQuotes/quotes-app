@@ -29,8 +29,6 @@ class ExampleQuoteObject {
 class _FullScreenQuotesState extends State<FullScreenQuotesScreen> {
   var pageIndex = 0;
   bool shareMode = false;
-  String image = "";
-  String hash = "";
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +50,7 @@ class _FullScreenQuotesState extends State<FullScreenQuotesScreen> {
                       child: AnimatedContainer(
                         width: shareMode ? size.width * .9 : size.width,
                         alignment: Alignment.center,
-                        height: shareMode ? 300 : size.height,
+                        height: shareMode ? 400 : size.height,
                         duration: const Duration(milliseconds: 250),
                         child: Screenshot(
                           controller: bloc.screenShotController,
@@ -66,7 +64,7 @@ class _FullScreenQuotesState extends State<FullScreenQuotesScreen> {
                                     color: Colors.transparent,
                                     key: UniqueKey(),
                                     duration:
-                                        const Duration(milliseconds: 2000),
+                                        const Duration(milliseconds: 1500),
                                     imageFit: BoxFit.cover,
                                     hash: (state.quotes ?? [])[pageIndex]
                                         .imageHash,
@@ -124,13 +122,15 @@ class _FullScreenQuotesState extends State<FullScreenQuotesScreen> {
                             startDirection: StartDirection.bottom,
                             duration: 400,
                             child: Container(
+                              height: 48,
+                              width: 48,
                               margin: const EdgeInsets.only(
                                   right: 12, top: 24, bottom: 24),
                               padding: const EdgeInsets.all(6),
                               decoration: BoxDecoration(
                                 color: shareMode
                                     ? AppColors.indigo.withAlpha(32)
-                                    : Colors.grey.withAlpha(50),
+                                    : Colors.grey.withAlpha(24),
                                 borderRadius: const BorderRadius.all(
                                     Radius.circular(12.0)),
                               ),
@@ -158,19 +158,28 @@ class _FullScreenQuotesState extends State<FullScreenQuotesScreen> {
                             startDirection: StartDirection.bottom,
                             duration: 400,
                             child: Container(
+                              height: 48,
+                              width: 48,
                               margin: const EdgeInsets.only(
                                   right: 12, top: 24, bottom: 24),
                               padding: const EdgeInsets.all(6),
                               decoration: BoxDecoration(
                                 color: shareMode
                                     ? AppColors.indigo.withAlpha(200)
-                                    : Colors.grey.withAlpha(50),
+                                    : Colors.grey.withAlpha(24),
                                 borderRadius: const BorderRadius.all(
                                     Radius.circular(12.0)),
                               ),
                               child: GestureDetector(
-                                child: const Icon(Icons.save_alt,
-                                    size: 36, color: Colors.white),
+                                child: state.quoteActionStatus ==
+                                        QuoteActionStatus.initial
+                                    ? const Icon(Icons.save_alt,
+                                        size: 36, color: Colors.white)
+                                    : Container(
+                                        margin: const EdgeInsets.all(4),
+                                        child: const CircularProgressIndicator(
+                                            color: Colors.white),
+                                      ),
                                 onTap: () {
                                   bloc.add(ShareQuote());
                                 },
@@ -181,13 +190,15 @@ class _FullScreenQuotesState extends State<FullScreenQuotesScreen> {
                           startDirection: StartDirection.bottom,
                           duration: 400,
                           child: Container(
+                            height: 48,
+                            width: 48,
                             margin: const EdgeInsets.only(
                                 right: 12, top: 24, bottom: 24),
                             padding: const EdgeInsets.all(6),
                             decoration: BoxDecoration(
                               color: shareMode
                                   ? AppColors.indigo.withAlpha(200)
-                                  : Colors.grey.withAlpha(50),
+                                  : Colors.grey.withAlpha(24),
                               borderRadius: const BorderRadius.all(
                                 Radius.circular(12.0),
                               ),
@@ -212,6 +223,23 @@ class _FullScreenQuotesState extends State<FullScreenQuotesScreen> {
                       ],
                     ),
                   ),
+                  if (shareMode)
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 82, left: 24),
+                        child: TransitionAnimWidget(
+                          duration: 1000,
+                          child: Text(
+                            "Share to",
+                            style: getTextStyle(
+                              size: 42,
+                              color: Colors.black45,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                 ],
               );
             } else {

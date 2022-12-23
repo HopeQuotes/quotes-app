@@ -13,7 +13,7 @@ class FullScreenQuoteItemWidget extends StatelessWidget {
       children: [
         Align(
           child: Container(
-            color: Colors.black.withAlpha(150),
+            color: Colors.black.withAlpha(200),
           ),
         ),
         Align(

@@ -43,9 +43,12 @@ class FullScreenQuoteBloc
   }
 
   Future<void> _shareQuote(ShareQuote event,Emitter emitter) async {
+    emitter(state.copyWith(quoteActionStatus: QuoteActionStatus.sharing));
     var saved = await screenShotController.captureAndSave(await Paths
         .getApplicationDocPath());
-    QuoteShare.share(saved);
+    await QuoteShare.share(saved);
+    emitter(state.copyWith(quoteActionStatus: QuoteActionStatus.initial));
+
   }
 
   Future<void> _loadQuotes(LoadQuotes event, Emitter emitter) async {
