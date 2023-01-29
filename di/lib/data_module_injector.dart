@@ -46,7 +46,7 @@ void initDomainModuleDependencies() {
 }
 
 void initDaos() {
-  injector.registerSingleton(MyDatabase());
+  injector.registerSingleton(AppDatabase());
   injector.registerSingleton(QuotesDao(injector()));
   injector.registerSingleton(UserDao(injector()));
 }

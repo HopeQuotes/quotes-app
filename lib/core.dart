@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:common/navigation/exp.dart';
 import 'package:common/resources/colors.dart';
 import 'package:common/utils/fonts.dart';
@@ -40,7 +42,6 @@ class _CoreState extends State<Core> {
             topRight: Radius.circular(30.0),
           ),
           child: BottomNavigationBar(
-
             selectedLabelStyle: getTextStyle(size: 14),
             onTap: (index) {
               if (index == 2) {

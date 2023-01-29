@@ -5,8 +5,8 @@ import '../core/app_database.dart';
 part 'user_dao.g.dart';
 
 @DriftAccessor(tables: [UserTable])
-class UserDao extends DatabaseAccessor<MyDatabase> with _$UserDaoMixin {
-  UserDao(MyDatabase db) : super(db);
+class UserDao extends DatabaseAccessor<AppDatabase> with _$UserDaoMixin {
+  UserDao(AppDatabase db) : super(db);
 
   Future<UserCache?> getUser() {
     return select(userTable).getSingleOrNull();

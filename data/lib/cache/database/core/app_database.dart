@@ -40,8 +40,8 @@ class UserTable extends Table {
 }
 
 @DriftDatabase(tables: [QuotesTable, UserTable])
-class MyDatabase extends _$MyDatabase {
-  MyDatabase() : super(_openConnection());
+class AppDatabase extends _$MyDatabase {
+  AppDatabase() : super(_openConnection());
 
   @override
   int get schemaVersion => 1;
