@@ -23,7 +23,6 @@
 - Hive
 - Sqllite
 - Unit testing
-- Test driven development
 - Animations
 - Custom widgets
 - BlurHash
